@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>搭建个人博客 | My New Hugo Site</title>
+<meta name="keywords" content="">
+<meta name="description" content="Hugo&#43;Github Pages搭建个人博客 一 前言 诶诶，说是github page加hugo能搭建个人博客，那究竟这些是啥工具还是软件呀
+那就去了解呗，了解学习这些技术，不懂就去查就去问。加油!
+首先看看hugo吧 hugo是什么？ Hugo 是一个用 Go 语言编写的静态网站生成器。
+什么是静态网站？ 静态网站是指使用固定数量的由 HTML、CSS 和 JavaScript 组成的预置文件来提供页面的网站。
+静态网站没有后台服务器端处理，也没有数据库。与静态网站相关的任何 “动态” 功能都是在客户端执行的，这意味着代码是在访问者的浏览器中而不是在服务器上执行的。
+用非技术术语来说，这意味着您的主机将网站文件发送到访问者的浏览器上，与这些文件在服务器上的显示完全一致。
+更重要的是，每一位访问者的浏览器都会收到相同的静态文件，这就意味着访问者会获得完全相同的体验，看到完全相同的内容。
+什么是动态网站？ 动态网站是指由服务器端控制并依赖于某种脚本语言（如 PHP）的网站。每次有人访问网站*，服务器都会处理其代码和/或查询数据库，以生成完成的页面。
+这样，服务器就能为每次访问显示不同的内容。例如，登录网站的人可能会看到一个版本的页面，而未登录的人在访问该页面时可能会看到完全不同的内容。
+这也意味着，您在网站管理控制面板上所做的任何更改都可以立即看到，因为内容管理系统会自动开始提供带有最新内容/更改的页面。
+**提示：***使用页面缓存等技术，可以在一定时间内存储完成的 HTML 版本页面，从而无需每次加载页面时都执行上述操作。
+静态网站优点 更易于优化性能-可以说，由于静态网站的 “活动部件 “较少，因此更易于优化性能。静态网站一般都非常精简，加载速度也很快，尤其是如果你制作得当的话。 需要的服务器资源更少-由于静态网站不需要任何服务器端处理，因此每次访问时服务器需要做的工作要少得多。这就提高了网站的性能，并有助于网站在扩展时发挥更好的性能。您甚至可以直接将静态网站部署到 CDN，而完全不使用网络服务器（这在一定程度上意味着您的网站没有静态 IP 地址）。 托管静态网站的费用非常低廉-对于简单的业余爱好项目/作品集而言，您可以将其免费托管在我们的静态网站托管服务上，或使用其他免费托管服务，如 GitHub Pages 或 Cloudflare Pages。 更容易确保安全-由于静态网站不依赖服务器端处理或数据库，因此恶意行为者的攻击面较少。静态网站仍有可能被黑客攻击，但发生的可能性要小得多。 非常容易启动简单的网站–您可以非常快速地启动静态网站，因为您无需担心数据库等技术细节的设置。 静态网站缺点 应用内容/设计更新可能更复杂-对于静态网站，每次进行更改或应用更新时都需要重新部署网站，即使是更改导航菜单中的一个项目这样很小的事情也是如此。这可能会增加一些额外的复杂性，尤其是当你定期更改网站时。不过，当你通过 Kinsta 等静态网站托管服务部署 Git 仓库时，你可以开启自动部署功能，在有任何更改时自动从 Git 仓库触发部署。 添加功能的技术性更强-使用 WordPress 等动态网站工具，当你想为网站添加功能时，可以安装一个新插件。而对于静态网站，通常（但并不总是）会更加复杂。 内容管理功能通常没有那么强-静态网站工具在管理内容方面通常没有那么强，如果你有一个拥有成千上万内容和大量分类组织的大型网站，这可能会很麻烦。不过，一些静态网站生成器正在努力减少这一问题。 依赖第三方服务实现网络表单等基本功能-例如，大多数静态网站都使用 FormBold 或 Getform 等表单端点 API。或者，你也可以嵌入第三方表单服务，如 Google 表单（或这些 Google 表单替代品之一）。对于 WordPress 这样的动态内容管理系统，您只需安装一个表单插件，然后将所有内容存储到网站数据库中即可。 如何创建静态网站 1.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%9F%BA%E4%BA%8Ehugo%E5%92%8Cgithub-page%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%9F%BA%E4%BA%8Ehugo%E5%92%8Cgithub-page%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%9F%BA%E4%BA%8Ehugo%E5%92%8Cgithub-page%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%9F%BA%E4%BA%8Ehugo%E5%92%8Cgithub-page%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="My New Hugo Site (Alt + H)">My New Hugo Site</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      搭建个人博客
+    </h1>
+    <div class="post-meta"><span title='2024-03-15 13:04:41 +0800 CST'>March 15, 2024</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="hugogithub-pages搭建个人博客">Hugo+Github Pages搭建个人博客<a hidden class="anchor" aria-hidden="true" href="#hugogithub-pages搭建个人博客">#</a></h1>
+<h2 id="一-前言">一 前言<a hidden class="anchor" aria-hidden="true" href="#一-前言">#</a></h2>
+<blockquote>
+<p>诶诶，说是github page加hugo能搭建个人博客，那究竟这些是啥工具还是软件呀</p>
+</blockquote>
+<blockquote>
+<p>那就去了解呗，了解学习这些技术，不懂就去查就去问。加油!</p>
+</blockquote>
+<h3 id="首先看看hugo吧">首先看看hugo吧<a hidden class="anchor" aria-hidden="true" href="#首先看看hugo吧">#</a></h3>
+<h4 id="hugo是什么"><strong>hugo是什么？</strong><a hidden class="anchor" aria-hidden="true" href="#hugo是什么">#</a></h4>
+<p><strong>Hugo 是一个用 Go 语言编写的静态网站生成器。</strong></p>
+<h4 id="什么是静态网站">什么是静态网站？<a hidden class="anchor" aria-hidden="true" href="#什么是静态网站">#</a></h4>
+<p>静态网站是指使用固定数量的由 <a href="https://www.wbolt.com/what-is-html.html">HTML</a>、CSS 和 <a href="https://www.wbolt.com/what-is-javascript.html">JavaScript</a> 组成的预置文件来提供页面的网站。</p>
+<p>静态网站没有后台服务器端处理，也没有数据库。与静态网站相关的任何 “动态” 功能都是在客户端执行的，这意味着代码是在访问者的浏览器中而不是在服务器上执行的。</p>
+<p>用非技术术语来说，这意味着您的主机将网站文件发送到访问者的浏览器上，与这些文件在服务器上的显示完全一致。</p>
+<p>更重要的是，每一位访问者的浏览器都会收到相同的静态文件，这就意味着访问者会获得完全相同的体验，看到完全相同的内容。</p>
+<h4 id="什么是动态网站">什么是动态网站？<a hidden class="anchor" aria-hidden="true" href="#什么是动态网站">#</a></h4>
+<p>动态网站是指由服务器端控制并依赖于某种脚本语言（如 PHP）的网站。每次有人访问网站*，服务器都会处理其代码和/或查询数据库，以生成完成的页面。</p>
+<p>这样，服务器就能为每次访问显示不同的内容。例如，登录网站的人可能会看到一个版本的页面，而未登录的人在访问该页面时可能会看到完全不同的内容。</p>
+<p>这也意味着，您在网站管理控制面板上所做的任何更改都可以立即看到，因为内容管理系统会自动开始提供带有最新内容/更改的页面。</p>
+<p>**提示：***使用页面缓存等技术，可以在一定时间内存储完成的 HTML 版本页面，从而无需每次加载页面时都执行上述操作。</p>
+<h4 id="静态网站优点">静态网站优点<a hidden class="anchor" aria-hidden="true" href="#静态网站优点">#</a></h4>
+<ul>
+<li><strong>更易于优化性能</strong>-可以说，由于静态网站的 “活动部件 “较少，因此更易于优化性能。静态网站一般都非常精简，加载速度也很快，尤其是如果你制作得当的话。</li>
+<li><strong>需要的服务器资源更少</strong>-由于静态网站不需要任何服务器端处理，因此每次访问时服务器需要做的工作要少得多。这就提高了网站的性能，并有助于网站在扩展时发挥更好的性能。您甚至可以直接将静态网站部署到 CDN，而完全不使用网络服务器（这在一定程度上意味着您的网站<a href="https://www.wbolt.com/static-vs-dynamic-ip.html">没有静态 IP 地址</a>）。</li>
+<li><strong>托管静态网站的费用非常低廉</strong>-对于简单的业余爱好项目/作品集而言，您可以将其免费托管在我们的静态网站托管服务上，或使用其他免费托管服务，如 GitHub Pages 或 Cloudflare Pages。</li>
+<li><strong>更容易确保安全</strong>-由于静态网站不依赖服务器端处理或数据库，因此恶意行为者的攻击面较少。静态网站仍有可能被黑客攻击，但发生的可能性要小得多。
+非常容易启动简单的网站–您可以非常快速地启动静态网站，因为您无需担心数据库等技术细节的设置。</li>
+</ul>
+<h4 id="静态网站缺点">静态网站缺点<a hidden class="anchor" aria-hidden="true" href="#静态网站缺点">#</a></h4>
+<ul>
+<li><strong>应用内容/设计更新可能更复杂</strong>-对于静态网站，每次进行更改或应用更新时都需要重新部署网站，即使是更改导航菜单中的一个项目这样很小的事情也是如此。这可能会增加一些额外的复杂性，尤其是当你定期更改网站时。不过，当你通过 Kinsta 等静态网站托管服务部署 Git 仓库时，你可以开启自动部署功能，在有任何更改时自动从 Git 仓库触发部署。</li>
+<li><strong>添加功能的技术性更强</strong>-使用 WordPress 等动态网站工具，当你想为网站<a href="https://www.wbolt.com/must-have-plugins-for-wordpress.html">添加功能</a>时，可以安装一个新插件。而对于静态网站，通常（但并不总是）会更加复杂。</li>
+<li><strong>内容管理功能通常没有那么强</strong>-静态网站工具在管理内容方面通常没有那么强，如果你有一个拥有成千上万内容和大量分类组织的大型网站，这可能会很麻烦。不过，一些静态网站生成器正在努力减少这一问题。</li>
+<li><strong>依赖第三方服务实现网络表单等基本功能</strong>-例如，大多数静态网站都使用 <a href="https://www.wbolt.com/go?_=dc5709c724aHR0cHM6Ly9mb3JtYm9sZC5jb20v">FormBold</a> 或 <a href="https://www.wbolt.com/go?_=0dd0dbf041aHR0cHM6Ly9nZXRmb3JtLmlvLw%3D%3D">Getform</a> 等表单端点 API。或者，你也可以嵌入第三方表单服务，如 <a href="https://www.wbolt.com/google-forms-alternative.html">Google 表单</a>（或这些 Google 表单替代品之一）。对于 WordPress 这样的动态内容管理系统，您只需安装一个<a href="https://www.wbolt.com/wordpress-contact-form-plugins.html">表单插件</a>，然后将所有内容存储到网站数据库中即可。</li>
+</ul>
+<h4 id="如何创建静态网站">如何创建静态网站<a hidden class="anchor" aria-hidden="true" href="#如何创建静态网站">#</a></h4>
+<h5 id="1-选择静态网站生成器或内容管理系统">1. 选择静态网站生成器或内容管理系统<a hidden class="anchor" aria-hidden="true" href="#1-选择静态网站生成器或内容管理系统">#</a></h5>
+<p>首先，选择一个静态网站生成器或一个可以部署静态网站的内容管理系统。</p>
+<p>静态网站生成器为您提供了一种更简单的方式来构建静态网站。它还能让您在将来更新网站时更加轻松。</p>
+<p>静态网站生成器可以帮助您部署新版本的所有网站文件，以反映所做的更改，而无需在做出更改（如在导航菜单中添加新项目）时编辑每一个 HTML 文件。</p>
+<p>以下是一些常用的静态网站生成器，你可以考虑使用：</p>
+<ul>
+<li><a href="https://www.wbolt.com/go?_=134cc21a94aHR0cHM6Ly9qZWt5bGxyYi5jb20v"><strong>Jekyll</strong></a> – 最受欢迎的开源静态网站生成器之一。可用于各种网站并支持博客。我们有一整篇文章介绍<a href="https://www.wbolt.com/jekyll-static-site.html">如何使用 Jekyll 创建静态网站</a>。</li>
+<li><strong><a href="https://www.wbolt.com/go?_=c27d606a8baHR0cHM6Ly9nb2h1Z28uaW8v">Hugo</a></strong> – 另一种流行的开源生成器，适用于各种不同类型的网站。我们也有一篇关于<a href="https://www.wbolt.com/hugo-static-site.html">如何使用 Hugo 创建静态网站</a>的文章。</li>
+<li><strong>WordPress + 静态网站生成器插件</strong> – 您可以使用 WordPress 构建网站，然后使用您喜欢的静态网站生成器插件将其部署为静态 HTML 网站。</li>
+</ul>
+<h3 id="gihub-page那又是什么鸭">gihub page那又是什么鸭?<a hidden class="anchor" aria-hidden="true" href="#gihub-page那又是什么鸭">#</a></h3>
+<blockquote>
+<p>是不是很兴奋! 那我们就开始搭建属于我们的个人博客吧</p>
+</blockquote>
+<p><em><strong><!-- raw HTML omitted -->这是基于ubuntu(Linux系统)的搭建O<!-- raw HTML omitted --></strong></em></p>
+<h2 id="二-准备">二 准备<a hidden class="anchor" aria-hidden="true" href="#二-准备">#</a></h2>
+<h3 id="1创建-github-帐户--------默认都有啦">1.<strong>创建 GitHub 帐户</strong>  &mdash;&ndash; 默认都有啦<a hidden class="anchor" aria-hidden="true" href="#1创建-github-帐户--------默认都有啦">#</a></h3>
+<h3 id="2安装git">2.<strong>安装git</strong><a hidden class="anchor" aria-hidden="true" href="#2安装git">#</a></h3>
+<ul>
+<li>查看是否安装了git 及 安装
+在终端执行：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git
+</span></span></code></pre></div><p>没有，进行git安装：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install git
+</span></span></code></pre></div><p>执行中可能有无错误，提示：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>E: Failed to eftch http://archives.....
+</span></span><span style="display:flex;"><span>....
+</span></span><span style="display:flex;"><span>E: Unable to fetch http.....
+</span></span></code></pre></div><p>这个缺少某些依赖，进行更新操作即可，执行下面：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get update
+</span></span></code></pre></div><p>再次执行git的安装命令，ok
+安装完成后，执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git
+</span></span></code></pre></div><ul>
+<li>git的配置</li>
+</ul>
+<p>这里git的配置，与window的相似，只是执行的地方不一样，ubuntu直接在终端执行即可！！</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git config --global user.name  “aaa”
+</span></span><span style="display:flex;"><span>git config --global user.email <span style="color:#e6db74">&#34;aa@qq.com&#34;</span>
+</span></span><span style="display:flex;"><span>ssh-keygen -t rsa -C <span style="color:#e6db74">&#34;aa@qq.com&#34;</span>
+</span></span></code></pre></div><p><img loading="lazy" src="https://img2.imgtp.com/2024/03/15/PwG5rdfu.png" alt=""  />
+</p>
+<p>创建完成后，这个公钥需要在网页上配置一下：
+使用命令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/.ssh
+</span></span></code></pre></div><p>进入到~/.ssh 文件夹</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gedit id_rsa.pub
+</span></span></code></pre></div><ul>
+<li>打开公钥文件：id_rsa.pub
+将文件的全部内容复制</li>
+<li>然后打开自己github账号
+点击头像
+打开github -&raquo; setting &ndash;&raquo; SSH and GRG keys &ndash;&raquo;创建一个key,把复制的内容粘贴,就可以拉!</li>
+</ul>
+<blockquote>
+<p>可能要登陆确认</p>
+</blockquote>
+<h3 id="安装hugo">安装hugo<a hidden class="anchor" aria-hidden="true" href="#安装hugo">#</a></h3>
+<ul>
+<li>
+<p>打开 Github 中的 <a href="https://github.com/gohugoio/hugo">Hugo</a> 库，打开右边侧边栏About下面的 Realeases，下载最新的版本，本次下载为：<a href="https://github.com/gohugoio/hugo/releases/download/v0.121.1/hugo_extended_0.121.1_windows-amd64.zip">hugo_extended_0.121.1_windows-amd64.zip</a></p>
+<p><img loading="lazy" src="https://liumy-lay.github.io/posts/hugo-github-pages/index.assets/image-20231227181602909.png" alt="image-20231227181602909"  />
+</p>
+</li>
+<li>
+<p>解压后，将其中的 hugo.exe 放到指定的安装目录，比如 D:\softwares\Hugo\bin，然后将该目录添加到系统环境变量（win+R → sysdm.cpl → 高级 → 环境变量 → 系统变量 Path）的 Path 下。</p>
+</li>
+<li>
+<p>打开命令行，输入 <code>hugo version</code>，显示版本号即为安装成功</p>
+<p><img loading="lazy" src="https://liumy-lay.github.io/posts/hugo-github-pages/index.assets/image-20231227181823311.png" alt="image-20231227181823311"  />
+</p>
+</li>
+</ul>
+<h2 id="三-利用hugo快速发布自己的个人博客主题是最简单">三 利用hugo快速发布自己的个人博客(主题是最简单)<a hidden class="anchor" aria-hidden="true" href="#三-利用hugo快速发布自己的个人博客主题是最简单">#</a></h2>
+<h3 id="a开始搭建">A.开始搭建<a hidden class="anchor" aria-hidden="true" href="#a开始搭建">#</a></h3>
+<p>1.在目录中为您的博客创建一个以<code>myblog</code>命名的文件夹<a href="https://gohugo.io/getting-started/directory-structure/">目录结构</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site myblog
+</span></span></code></pre></div><p>2.将当前目录更改为博客的根目录。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd myblog
+</span></span></code></pre></div><p>3.在当前目录中初始化一个空的 Git 存储库。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init
+</span></span></code></pre></div><p>4.将PaperMod主题克隆到博客目录结构中，并将其作为Git 子模块<code>themes</code>添加到您的博客中。</p>
+<p><a href="https://www.gohugo.org/theme/">皮肤列表 - Hugo中文文档 (gohugo.org)</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add --depth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+</span></span></code></pre></div><p>5.在博客配置文件<code>hugo.toml</code>(位于根目录)中添加一行，表明为<code>PaperMod</code>主题。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;theme = &#39;PaperMod&#39;&#34;</span> &gt;&gt; hugo.toml
+</span></span></code></pre></div><p>6.启动Hugo的开发服务器来预览博客。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#打开连接http://localhost:1313/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#有的主题配置起来有点难度</span>
+</span></span></code></pre></div><blockquote>
+<p>现在的每一步都是在根目录（myblog下进行）</p>
+</blockquote>
+<h3 id="b添加内容">B.添加内容<a hidden class="anchor" aria-hidden="true" href="#b添加内容">#</a></h3>
+<p>1.向您的网站添加新页面。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new posts/文章标题/index.md
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># posts为你文章存储的文件夹名，可任取</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 默认生成路径为content/posts/文章</span>
+</span></span></code></pre></div><p>为什么使用这个路径来存放文章<code>好问题</code></p>
+<p>使用任意文本编辑器打开文件<code>my-first-post.md</code>，可以看到默认内容为：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;My First Post&#34;
+</span></span><span style="display:flex;"><span>date: 2022-11-20T09:03:20-08:00
+</span></span><span style="display:flex;"><span>draft: true
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p>请注意<code>draft</code>中的值为true，代表草稿状态。默认情况下，Hugo 在您构建网站时不会发布草稿内容。</p>
+<p>2.保存文件，然后启动Hugo的开发服务器来预览博客</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 运行以下任一命令来预览草稿内容</span>
+</span></span><span style="display:flex;"><span>hugo server --buildDrafts
+</span></span><span style="display:flex;"><span>hugo server -D
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#复制</span>
+</span></span></code></pre></div><h3 id="c配置网站">C.配置网站<a hidden class="anchor" aria-hidden="true" href="#c配置网站">#</a></h3>
+<p>使用编辑器打开项目根目录中的<a href="https://gohugo.io/getting-started/configuration/">博客配置</a>文件 ( <code>hugo.toml</code>)。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>baseURL = &#39;https://example.org/&#39;
+</span></span><span style="display:flex;"><span>languageCode = &#39;en-us&#39;
+</span></span><span style="display:flex;"><span>title = &#39;My New Hugo Site&#39;
+</span></span><span style="display:flex;"><span>theme = &#39;PaperMod&#39;
+</span></span></code></pre></div><p>进行以下更改：</p>
+<ol>
+<li>为您的网站设置<code>baseURL</code>。该值必须以协议开头并以斜杠结尾，如上所示。</li>
+<li>设置<code>languageCode</code>为您的语言和区域（中文简体为<code>zh-CN</code>）。</li>
+<li>为您的网站设置标题<code>title</code>。</li>
+</ol>
+<p>启动 Hugo 的开发服务器以查看您的更改，请记住包含草稿内容。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -D
+</span></span></code></pre></div><h3 id="d发布网站">D.发布网站<a hidden class="anchor" aria-hidden="true" href="#d发布网站">#</a></h3>
+<p>在此步骤中，您将<strong>发布</strong>您的网站，但不会<strong>部署</strong>它。</p>
+<p>当您<strong>发布</strong><code>public</code>站点时，Hugo 在项目根目录的目录中创建整个静态站点。这包括 HTML 文件以及图像、CSS 文件和 JavaScript 文件等资产。</p>
+<p>当您发布网站时，您通常不希望包含<a href="https://gohugo.io/getting-started/usage/#draft-future-and-expired-content">草稿、未来或过期的内容</a>。命令很简单：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>hugo
+</span></span></code></pre></div><h2 id="四-在互联网上利用github-pages部署个人博客">四 在互联网上利用Github Pages部署个人博客<a hidden class="anchor" aria-hidden="true" href="#四-在互联网上利用github-pages部署个人博客">#</a></h2>
+<p>GitHub 通过 GitHub Pages 服务直接从 GitHub 存储库通过 SSL 为个人、组织或项目页面提供免费、快速的静态托管，并自动化开发工作流程并使用 GitHub Actions 进行构建。</p>
+<h3 id="step1创建github存储库">Step1.创建Github存储库。<a hidden class="anchor" aria-hidden="true" href="#step1创建github存储库">#</a></h3>
+<p>注意库名必须以用户名开头，例如：我的用户名是liumy-lay，则库名为liumy-lay.github.io</p>
+<p><img loading="lazy" src="https://liumy-lay.github.io/posts/hugo-github-pages/index.assets/image-20231228143322332-17037687158431.png" alt="image-20231228143322332-17037687158431"  />
+</p>
+<h3 id="step2将本地存储库推送到-github">Step2.将本地存储库推送到 GitHub<a hidden class="anchor" aria-hidden="true" href="#step2将本地存储库推送到-github">#</a></h3>
+<ul>
+<li>
+<p>报错：由于生成本地<code>git</code>库的分支默认是<code>master</code>，而<code>github</code>库默认分支为<code>main</code>，因此<code>git pus</code>h时会出现各种报错</p>
+</li>
+<li>
+<p>解决：将本地分支改名为<code>main</code>，重新<code>git push</code>会报<code>fatal</code>，根据<code>fatal</code>提示内容强制推送即可解决。</p>
+</li>
+<li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ git remote add origin git@github.com:<span style="color:#f92672">[</span>yourUsername<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>yourUsername<span style="color:#f92672">]</span>.github.io.git <span style="color:#75715e"># 将本地git库与远程Github库建立联系</span>
+</span></span><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#39;first commit&#39;</span> 
+</span></span><span style="display:flex;"><span>$ git push origin main
+</span></span><span style="display:flex;"><span>error: src refspec main does not match any
+</span></span><span style="display:flex;"><span>error: failed to push some refs to <span style="color:#e6db74">&#39;github.com:liumy-lay/liumy-lay.github.io.git&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#报错：由于生成本地`git`库的分支默认是`master`，而`github`库默认分支为`main`，因此`git pus`h时会出现各种报错</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ git branch -M main       <span style="color:#75715e"># 将当前分支改名为main</span>
+</span></span><span style="display:flex;"><span>$ git branch -a            <span style="color:#75715e"># 可以查看当前所有分支，此命令非必要</span>
+</span></span><span style="display:flex;"><span>$ git push origin
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#解决：将本地分支改名为`main`，重新`git push`会报`fatal`，根据`fatal`提示内容强制推送即可解决。</span>
+</span></span><span style="display:flex;"><span>fatal: The current branch main has no upstream branch.
+</span></span><span style="display:flex;"><span>To push the current branch and set the remote as upstream, use git push --set-upstream origin main
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#还会有点错</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$
+</span></span><span style="display:flex;"><span>$ git push --set-upstream origin main --force <span style="color:#75715e">#强制推送合并分支</span>
+</span></span><span style="display:flex;"><span>Enumerating objects: 32, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>Counting objects: 100% <span style="color:#f92672">(</span>32/32<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>Delta compression using up to <span style="color:#ae81ff">16</span> threads
+</span></span><span style="display:flex;"><span>Compressing objects: 100% <span style="color:#f92672">(</span>24/24<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>Writing objects: 100% <span style="color:#f92672">(</span>32/32<span style="color:#f92672">)</span>, 49.14 KiB | 137.00 KiB/s, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>Total <span style="color:#ae81ff">32</span> <span style="color:#f92672">(</span>delta 5<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, pack-reused <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>remote: Resolving deltas: 100% <span style="color:#f92672">(</span>5/5<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>To github.com:liumy-lay/liumy-lay.github.io.git
+</span></span><span style="display:flex;"><span> + b899144...23b296b main -&gt; main <span style="color:#f92672">(</span>forced update<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>branch <span style="color:#e6db74">&#39;main&#39;</span> set up to track <span style="color:#e6db74">&#39;origin/main&#39;</span>.
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="step3访问您的-github-存储库从主菜单中选择设置--页面在屏幕中央将源更改为github-actions改变是立竿见影的您不必按保存按钮">Step3.访问您的 GitHub 存储库，从主菜单中选择设置 &gt; 页面。在屏幕中央，将源更改为<code>GitHub Actions</code>。改变是立竿见影的；您不必按“保存”按钮。<a hidden class="anchor" aria-hidden="true" href="#step3访问您的-github-存储库从主菜单中选择设置--页面在屏幕中央将源更改为github-actions改变是立竿见影的您不必按保存按钮">#</a></h3>
+<p><img loading="lazy" src="https://liumy-lay.github.io/posts/hugo-github-pages/index.assets/image-20231228215625260.png" alt="image-20231228215625260"  />
+</p>
+<h3 id="step4在本地存储库中根目录下创建一个空文件githubworkflowshugoyaml">Step4.在本地存储库中根目录下创建一个空文件<code>.github/workflows/hugo.yaml</code>。<a hidden class="anchor" aria-hidden="true" href="#step4在本地存储库中根目录下创建一个空文件githubworkflowshugoyaml">#</a></h3>
+<h3 id="step5将下面的-yaml-复制并粘贴到您创建的文件中根据需要更改分支名称和-hugo-版本">Step5.将下面的 YAML 复制并粘贴到您创建的文件中。根据需要更改分支名称和 Hugo 版本。<a hidden class="anchor" aria-hidden="true" href="#step5将下面的-yaml-复制并粘贴到您创建的文件中根据需要更改分支名称和-hugo-版本">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Sample workflow for building and deploying a Hugo site to GitHub Pages</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy Hugo site to Pages</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Runs on pushes targeting the default branch</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">main</span> <span style="color:#75715e"># 分支名称默认为main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Allows you to run this workflow manually from the Actions tab</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">workflow_dispatch</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">permissions</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">contents</span>: <span style="color:#ae81ff">read</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pages</span>: <span style="color:#ae81ff">write</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">id-token</span>: <span style="color:#ae81ff">write</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">concurrency</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">group</span>: <span style="color:#e6db74">&#34;pages&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cancel-in-progress</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Default to bash</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">defaults</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">run</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">shell</span>: <span style="color:#ae81ff">bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Build job</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">HUGO_VERSION</span>: <span style="color:#ae81ff">0.121.0</span> <span style="color:#75715e"># Hugo版本号</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install Hugo CLI</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &amp;&amp; sudo dpkg -i ${{ runner.temp }}/hugo.deb                    </span>          
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install Dart Sass</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">sudo snap install dart-sass</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Checkout</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v4</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">submodules</span>: <span style="color:#ae81ff">recursive</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">fetch-depth</span>: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup Pages</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">id</span>: <span style="color:#ae81ff">pages</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/configure-pages@v4</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install Node.js dependencies</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#e6db74">&#34;[[ -f package-lock.json || -f npm-shrinkwrap.json ]] &amp;&amp; npm ci || true&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build with Hugo</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># For maximum backward compatibility with Hugo modules</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">HUGO_ENVIRONMENT</span>: <span style="color:#ae81ff">production</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">HUGO_ENV</span>: <span style="color:#ae81ff">production</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          hugo \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            --gc \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            --minify \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            --baseURL &#34;${{ steps.pages.outputs.base_url }}/&#34;                    </span>          
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Upload artifact</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/upload-pages-artifact@v2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">path</span>: <span style="color:#ae81ff">./public</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Deployment job</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">deploy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#ae81ff">github-pages</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">url</span>: <span style="color:#ae81ff">${{ steps.deployment.outputs.page_url }}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">needs</span>: <span style="color:#ae81ff">build</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy to GitHub Pages</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">id</span>: <span style="color:#ae81ff">deployment</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/deploy-pages@v3</span>
+</span></span></code></pre></div><h3 id="step6使用add-workflows之类的提交消息将更改提交到本地存储库然后推送到-github">Step6.使用“Add workflows”之类的提交消息将更改提交到本地存储库，然后推送到 GitHub。<a hidden class="anchor" aria-hidden="true" href="#step6使用add-workflows之类的提交消息将更改提交到本地存储库然后推送到-github">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#39;Add workflows&#39;</span> 
+</span></span><span style="display:flex;"><span>$ git push origin 
+</span></span><span style="display:flex;"><span>Enumerating objects: 6, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>Counting objects: 100% <span style="color:#f92672">(</span>6/6<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>Delta compression using up to <span style="color:#ae81ff">16</span> threads
+</span></span><span style="display:flex;"><span>Compressing objects: 100% <span style="color:#f92672">(</span>3/3<span style="color:#f92672">)</span>, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>Writing objects: 100% <span style="color:#f92672">(</span>5/5<span style="color:#f92672">)</span>, 1.32 KiB | 1.32 MiB/s, <span style="color:#66d9ef">done</span>.
+</span></span><span style="display:flex;"><span>Total <span style="color:#ae81ff">5</span> <span style="color:#f92672">(</span>delta 1<span style="color:#f92672">)</span>, reused <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>delta 0<span style="color:#f92672">)</span>, pack-reused <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>remote: Resolving deltas: 100% <span style="color:#f92672">(</span>1/1<span style="color:#f92672">)</span>, completed with <span style="color:#ae81ff">1</span> local object.
+</span></span><span style="display:flex;"><span>To github.com:liumy-lay/liumy-lay.github.io.git
+</span></span><span style="display:flex;"><span>   23b296b..aec5cc1  main -&gt; main
+</span></span></code></pre></div><h3 id="step7从-github-的主菜单中选择actions">Step7.从 GitHub 的主菜单中，选择<strong>Actions</strong>。<a hidden class="anchor" aria-hidden="true" href="#step7从-github-的主菜单中选择actions">#</a></h3>
+<p>当 GitHub 完成站点的构建和部署后，状态指示器的颜色将变为绿色。在部署步骤下，您将看到指向您的实时站点的链接。</p>
+<p>将来，每当您从本地存储库推送更改时，GitHub 都会重建您的站点并部署更改。</p>
+<p><img loading="lazy" src="https://liumy-lay.github.io/posts/hugo-github-pages/index.assets/image-20231228215747849.png" alt="image-20231228215747849"  />
+</p>
+<h2 id="总结">总结<a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h2>
+<p>本次搭建出现了许多BUG, 找了许多的解决办法, 但是仍然有不足之处,比如: 主题还太简单,部分操作还有新的问题等等!</p>
+<p>日常发布文章命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hugo new <span style="color:#f92672">[</span>posts<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>name<span style="color:#f92672">]</span>/index.md
+</span></span><span style="display:flex;"><span>$ hugo server -D
+</span></span><span style="display:flex;"><span>$ hugo
+</span></span><span style="display:flex;"><span>$ git add .
+</span></span><span style="display:flex;"><span>$ git status
+</span></span><span style="display:flex;"><span>$ git commit -m <span style="color:#e6db74">&#39;[描述信息]&#39;</span>
+</span></span><span style="display:flex;"><span>$ git push origin
+</span></span></code></pre></div><p>看到action变绿色就代表可以了,不过更新速度有点慢!</p>
+<p>这就是本次手动搭建博客的全过程拉!</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">My New Hugo Site</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

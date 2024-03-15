@@ -6,14 +6,45 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Mar 2024 12:51:21 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 15 Mar 2024 13:04:41 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>搭建个人博客</title>
+      <link>http://localhost:1313/posts/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%9F%BA%E4%BA%8Ehugo%E5%92%8Cgithub-page%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 15 Mar 2024 13:04:41 +0800</pubDate>
+      <guid>http://localhost:1313/posts/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%9F%BA%E4%BA%8Ehugo%E5%92%8Cgithub-page%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>Hugo+Github Pages搭建个人博客 一 前言 诶诶，说是github page加hugo能搭建个人博客，那究竟这些是啥工具还是软件呀
+那就去了解呗，了解学习这些技术，不懂就去查就去问。加油!
+首先看看hugo吧 hugo是什么？ Hugo 是一个用 Go 语言编写的静态网站生成器。
+什么是静态网站？ 静态网站是指使用固定数量的由 HTML、CSS 和 JavaScript 组成的预置文件来提供页面的网站。
+静态网站没有后台服务器端处理，也没有数据库。与静态网站相关的任何 “动态” 功能都是在客户端执行的，这意味着代码是在访问者的浏览器中而不是在服务器上执行的。
+用非技术术语来说，这意味着您的主机将网站文件发送到访问者的浏览器上，与这些文件在服务器上的显示完全一致。
+更重要的是，每一位访问者的浏览器都会收到相同的静态文件，这就意味着访问者会获得完全相同的体验，看到完全相同的内容。
+什么是动态网站？ 动态网站是指由服务器端控制并依赖于某种脚本语言（如 PHP）的网站。每次有人访问网站*，服务器都会处理其代码和/或查询数据库，以生成完成的页面。
+这样，服务器就能为每次访问显示不同的内容。例如，登录网站的人可能会看到一个版本的页面，而未登录的人在访问该页面时可能会看到完全不同的内容。
+这也意味着，您在网站管理控制面板上所做的任何更改都可以立即看到，因为内容管理系统会自动开始提供带有最新内容/更改的页面。
+**提示：***使用页面缓存等技术，可以在一定时间内存储完成的 HTML 版本页面，从而无需每次加载页面时都执行上述操作。
+静态网站优点 更易于优化性能-可以说，由于静态网站的 “活动部件 “较少，因此更易于优化性能。静态网站一般都非常精简，加载速度也很快，尤其是如果你制作得当的话。 需要的服务器资源更少-由于静态网站不需要任何服务器端处理，因此每次访问时服务器需要做的工作要少得多。这就提高了网站的性能，并有助于网站在扩展时发挥更好的性能。您甚至可以直接将静态网站部署到 CDN，而完全不使用网络服务器（这在一定程度上意味着您的网站没有静态 IP 地址）。 托管静态网站的费用非常低廉-对于简单的业余爱好项目/作品集而言，您可以将其免费托管在我们的静态网站托管服务上，或使用其他免费托管服务，如 GitHub Pages 或 Cloudflare Pages。 更容易确保安全-由于静态网站不依赖服务器端处理或数据库，因此恶意行为者的攻击面较少。静态网站仍有可能被黑客攻击，但发生的可能性要小得多。 非常容易启动简单的网站–您可以非常快速地启动静态网站，因为您无需担心数据库等技术细节的设置。 静态网站缺点 应用内容/设计更新可能更复杂-对于静态网站，每次进行更改或应用更新时都需要重新部署网站，即使是更改导航菜单中的一个项目这样很小的事情也是如此。这可能会增加一些额外的复杂性，尤其是当你定期更改网站时。不过，当你通过 Kinsta 等静态网站托管服务部署 Git 仓库时，你可以开启自动部署功能，在有任何更改时自动从 Git 仓库触发部署。 添加功能的技术性更强-使用 WordPress 等动态网站工具，当你想为网站添加功能时，可以安装一个新插件。而对于静态网站，通常（但并不总是）会更加复杂。 内容管理功能通常没有那么强-静态网站工具在管理内容方面通常没有那么强，如果你有一个拥有成千上万内容和大量分类组织的大型网站，这可能会很麻烦。不过，一些静态网站生成器正在努力减少这一问题。 依赖第三方服务实现网络表单等基本功能-例如，大多数静态网站都使用 FormBold 或 Getform 等表单端点 API。或者，你也可以嵌入第三方表单服务，如 Google 表单（或这些 Google 表单替代品之一）。对于 WordPress 这样的动态内容管理系统，您只需安装一个表单插件，然后将所有内容存储到网站数据库中即可。 如何创建静态网站 1.</description>
+    </item>
     <item>
       <title>First Blog</title>
       <link>http://localhost:1313/posts/first-blog/</link>
       <pubDate>Fri, 15 Mar 2024 12:51:21 +0800</pubDate>
       <guid>http://localhost:1313/posts/first-blog/</guid>
       <description>你好！</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%9C%A8windows%E4%B8%8A%E5%AE%89%E8%A3%85linux%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E5%AE%89%E8%A3%85linux%E5%8F%8C%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%9C%A8windows%E4%B8%8A%E5%AE%89%E8%A3%85linux%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E5%AE%89%E8%A3%85linux%E5%8F%8C%E7%B3%BB%E7%BB%9F/</guid>
+      <description>自己动手安装linux(双系统) 准备 1.下载ubuntu系统镜像 Download Ubuntu Desktop | Download | Ubuntu
+2.准备一个u盘作为启动盘（需要格式化，最好空盘），这里需要一个工具帮助实现 USBWriter download | SourceForge.net
+3.电脑硬盘分盘（分盘详细的就不说了，选择100G左右，至少30G） 我装了一个硬盘，分了200G 正式安装 1.启动菜单，看自己电脑的U盘启动的是什么键 插入烧录好的U盘，电脑重启的时候不停的按F12 ，选择启动项的时候 选带有USB字样的
+2.点击进入，按图片顺序来一步一步完成 3.这个要切换启动系统的顺序，我的是按f2然后进入这个界面，大家可以查阅自己电脑的 然后重启 就会发现进入系统要进行选择了系统，那就赶紧进入linux享受吧！
+首次进入linux后 wifi网络显示没有，连wifi图标都没有，我慌了，后面上网查方法 方法:更新linux内核 回到windows
+搜索www.bing,com
+将这四个文件下载, 用copy到U盘然后再迁移重启就可以了</description>
     </item>
   </channel>
 </rss>
