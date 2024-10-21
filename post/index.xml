@@ -22,5 +22,12 @@
       <guid>https://klaypeter.github.io/post/myfirst/</guid>
       <description></description>
     </item>
+    <item>
+      <title>一些可以美化 Markdown 的表情符号</title>
+      <link>https://klaypeter.github.io/post/markdown-icon/</link>
+      <pubDate>Sat, 12 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://klaypeter.github.io/post/markdown-icon/</guid>
+      <description>参考&#xA;Complete list of github markdown emoji markup&#xA;常用的：&#xA;🐾 :feet:&#xA;💭 :thought_balloon:&#xA;👊 :punch:&#xA;💩 :shit:&#xA;😊 :blush:&#xA;❤️ :heart:&#xA;✌️ :v:&#xA;💧 :droplet:&#xA;☀️ :sunny:&#xA;🌐 :globe_with_meridians:&#xA;🌗 :last_quarter_moon:&#xA;🌍 :earth_africa:&#xA;⛅️ :partly_sunny:&#xA;💻 :computer:&#xA;📁 :file_folder:&#xA;✒️ :black_nib:&#xA;📝 :pencil:&#xA;⚠️ :warning:&#xA;🔴 :red_circle:&#xA;⭕️ :o:&#xA;✔️ :heavy_check_mark:&#xA;🚦 :vertical_traffic_light:</description>
+    </item>
   </channel>
 </rss>
