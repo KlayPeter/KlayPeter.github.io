@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>基于Github &#43; JsDelivr搭建属于自己的博客 // Min&#39;s Blog</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="基于Github &#43; JsDelivr搭建属于自己的博客" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://klaypeter.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" />
+    
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="https://klaypeter.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://klaypeter.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://klaypeter.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.123.8">
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://klaypeter.github.io/">Min&#39;s Blog</a>
+            <nav id="main-nav">
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">基于Github &#43; JsDelivr搭建属于自己的博客</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" class="article-date">
+                <time datetime='2024-10-12T00:00:00.000&#43;00:00' itemprop="datePublished">2024-10-12</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="图床是什么">图床是什么？</h2>
+<p>图床其实是互联网中存储图片的空间，举个栗子：</p>
+<p>假设你在微博分享一张图片，你的粉丝可以通过互联网看到你分享的图片，那么他是去访问你的手机的相册吗？其实不是的，你分享图片，也就是把图片上传到微博的服务器，微博将为你生成一个独一无二的访问链接，这个链接指向的空间其实就是图床。</p>
+<h2 id="为什么要用图床">为什么要用图床？</h2>
+<p>因为像我一样热爱在网上分享博客的人，需要使用图床来进行表达。使用图床的人通常采用Markdown的方式去编辑文字。</p>
+<h3 id="既然想去学习去使用那就开始实现吧">既然想去学习，去使用。那就开始实现吧！</h3>
+<h4 id="可以推荐去看的教程有什么">可以推荐去看的教程有什么？</h4>
+<p>1.https://mp.weixin.qq.com/s/l7rB4uhs7STzAFohc9Bw1g</p>
+<p>2.https://zhuanlan.zhihu.com/p/346410333</p>
+<h4 id="有什么直接去使用的网址">有什么直接去使用的网址?</h4>
+<ol>
+<li><a href="https://www.imgtp.com/">https://www.imgtp.com/</a> Img图床免费好用（图片上传就会产生图床地址链接）</li>
+<li><a href="https://www.freeimg.cn/">https://www.freeimg.cn/</a> Freeimg 需要付费</li>
+</ol>
+<p>那又如何自己搭建一个图床呢？</p>
+<p>这里推荐<code>Github</code> + <code>JsDelivr</code>的方式</p>
+<h5 id="github--jsdelivr">Github + JsDelivr</h5>
+<p>Github更稳定,配置起来也还是很方便</p>
+<p>师兄文章说的话：</p>
+<blockquote>
+<p><strong>推荐github+JsDeliver的理由如下：</strong></p>
+<ul>
+<li>快速方便：只需要建立仓库配置一下接口</li>
+<li>稳定，毕竟大厂商（但需要注意的是<code>Github</code>图片仓库过大的时候记得换仓库）</li>
+<li><code>JsDelivr</code>解决<code>Github</code>在国内访问慢以及流量问题</li>
+</ul>
+</blockquote>
+<h4 id="一-首先新建一个公开仓库">一 首先新建一个公开仓库：</h4>
+<p><img src="https://img2.imgtp.com/2024/03/18/hVx0ZkL0.png" alt="image-20240310000108257.png"></p>
+<h4 id="二-上传一张图片到仓库之后就已经可以当做图床使用">二 上传一张图片到仓库之后，就已经可以当做图床使用</h4>
+<p>//我蠢，我还不会上传文件或者图片，我学我学</p>
+<p>1.创建一个新文件</p>
+<p><img src="https://img2.imgtp.com/2024/03/18/12saAvYD.png" alt="image-20240310002157117.png"></p>
+<p>2.按步骤来完成配置</p>
+<p><img src="https://img2.imgtp.com/2024/03/18/12saAvYD.png" alt="image-20240310002157117.png"></p>
+<p><img src="https://img2.imgtp.com/2024/03/18/DsWh4Pyh.png" alt="image-20240310001714439.png"></p>
+<p>3.然后点击该文件，上传文件就好啦</p>
+<p><img src="https://img2.imgtp.com/2024/03/18/f83ERE1F.png" alt="image-20240310002022174.png"></p>
+<p>效果要这样的哦</p>
+<p><img src="https://img2.imgtp.com/2024/03/18/f6KC4Z3p.png" alt="image-20240310002051701.png"></p>
+<p>4.怎么让图片显示呢？ 先复制图片的地址</p>
+<p><img src="https://img2.imgtp.com/2024/03/18/Dl6cnYww.png" alt="image-20240310004805338.png"></p>
+<p>5.编写代码</p>
+<p><img src="https://img2.imgtp.com/2024/03/18/WWmSGsxs.png" alt="image-20240310004958765.png"></p>
+<pre tabindex="0"><code>![](复制的路径)  //显示图片的语法
+</code></pre><p><img src="https://img2.imgtp.com/2024/03/18/6Zpo2ZTp.png" alt="image-20240310005311393.png"></p>
+<h4 id="那会创建了那就要使用看看使用的情况">那会创建了，那就要使用，看看使用的情况</h4>
+<p>就这样了</p>
+<p><img src="https://img2.imgtp.com/2024/03/18/giM24cPA.png" alt="image-20240310005351206.png"></p>
+<blockquote>
+<p>那怎么在外面去使用呢？例如：Markdown 一般上传一张图片到仓库之后，就已经可以当做图床使用</p>
+</blockquote>
+<blockquote>
+<p>蠢蠢的我想到了cv大法，但是图片显示不出来</p>
+</blockquote>
+<p>后来知道了:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>![](https://github.com/KlayPeter/mmx_img/blob/main/iu%E5%A3%81%E7%BA%B8.webp)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>--- 将blob改为raw
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp)
+</span></span><span style="display:flex;"><span>不信试试
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>真的诶！
+</span></span></code></pre></div><blockquote>
+<p><strong>github加载图片是很慢的，怎么去引入JsDeliver的加速地址？</strong></p>
+</blockquote>
+<h3 id="github引入jsdeliver的加速地址">github引入JsDeliver的加速地址</h3>
+<blockquote>
+<h3 id="jsdelivre7ae80e4bb8bjsdelivr简介"><a href="#jsdelivr%e7%ae%80%e4%bb%8b"></a><strong>jsDelivr简介</strong></h3>
+<p>是一个免费、快速和可信赖的CDN加速服务，声称它每个月可以支撑680亿次的请求。服务在Github上是开源的，<strong><a href="https://link.zhihu.com/?target=https%3A//github.com/jsdelivr/jsdelivr">jsDelivr地址</a></strong> 。目前，它提供了针对npm、Github和WordPress的加速服务，只需要一行代码就可以获得加速效果。只要我们的项目中用到了第三方的静态资源，譬如JavaScript脚本，css样式表，图片，图标，Flash等静态资源文件都应该考虑接入到CDN中</p>
+</blockquote>
+<p><strong>开始操作：</strong> 首先在图床仓库中点击release发布版本</p>
+<p><img src="https://pic4.zhimg.com/v2-4350b19a0496049bc7cd35cbaadabb87_r.jpg" alt="https://pic4.zhimg.com/v2-4350b19a0496049bc7cd35cbaadabb87_r.jpg"></p>
+<p>自定义发布版（记得版本填写时要enter）</p>
+<p><img src="https://pic4.zhimg.com/80/v2-55c57ab90caffa7339eb62c5944601a7_1440w.webp" alt="img"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>这是github图上的原始路径
+</span></span><span style="display:flex;"><span>![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp)
+</span></span><span style="display:flex;"><span>加速之后！！！----- https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##注意不要把`raw/main/`加进去哦
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>![](https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp)
+</span></span></code></pre></div><p><img src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp"></p>
+<p>上面我女神哈哈哈哈哈！！</p>
+<blockquote>
+<p>知道怎么去手动创建了，但是好累，费时间，那么有什么工具提供给我们学习呢?</p>
+</blockquote>
+<h3 id="采用工具来帮我们做事">采用工具来帮我们做事</h3>
+<ul>
+<li><strong>PicGo</strong>：一个用于快速上传图片并获取图片链接的跨平台工具</li>
+<li><strong>uPic</strong>：功能和上面一样，纯 macOS 系统支持，所以在 mac 下面交互体验比上面流畅不少，还有对应移动端 APP</li>
+</ul>
+<p>上面两款工具使用方式都是一样的，针对<code>Github</code>做图床都需要获取<code>token</code>供第三方图床工具使用。</p>
+<h2 id="现在就让我们来学习学习使用picgo来实现上传github图床吧">现在就让我们来学习学习使用PicGo来实现上传github图床吧！</h2>
+<p>首先先下载PicGo 到官网下载即可https://picgo.github.io/PicGo-Doc/zh/guide/#picgo-is-here</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#run</span>
+</span></span><span style="display:flex;"><span>./PicGo-2.4.0-beta.6.AppImage
+</span></span></code></pre></div><p>然后打开PicGo在PicGo里面进行配置( 每一项都要配置清楚 ) <img src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231350749.png" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231350749.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351157.png" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351157.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351684.png" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351684.png"></p>
+<p>其中的token是十分重要的，我来带大家生成一下这个token 1.setting—» Developer setting —» Personal access tokens —-» token( classic ) ——» Generate new token —&gt; (the second) New personal access token(classic) <img src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351297.png" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351297.png"></p>
+<p>将这些东西配置好之后，就可以正常上传图床啦！（留意token，库名等等的正确性）</p>
+<p>最后再把加速链接jsdelivr设置一下, 就大功告成啦！</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>https://fastly.jsdelivr.net/gh/<span style="color:#f92672">[</span>Username<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>Ku<span style="color:#f92672">]</span>@main
+</span></span></code></pre></div><p><strong>到这里就结束啦，好好写markdown和博客吧！</strong></p>
+<p>参考博客：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/346643522">https://zhuanlan.zhihu.com/p/346643522</a></p>
+<p>/posts/first-blog/ &ldquo;First Blog&rdquo;)</p>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#图床是什么">图床是什么？</a></li>
+    <li><a href="#为什么要用图床">为什么要用图床？</a>
+      <ul>
+        <li><a href="#既然想去学习去使用那就开始实现吧">既然想去学习，去使用。那就开始实现吧！</a></li>
+        <li><a href="#github引入jsdeliver的加速地址">github引入JsDeliver的加速地址</a></li>
+        <li><a href="#jsdelivre7ae80e4bb8bjsdelivr简介"><a href="#jsdelivr%e7%ae%80%e4%bb%8b"></a><strong>jsDelivr简介</strong></a></li>
+        <li><a href="#采用工具来帮我们做事">采用工具来帮我们做事</a></li>
+      </ul>
+    </li>
+    <li><a href="#现在就让我们来学习学习使用picgo来实现上传github图床吧">现在就让我们来学习学习使用PicGo来实现上传github图床吧！</a></li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+
+
+        
+    </div>
+    
+<nav id="article-nav">
+    
+    <a href="/post/markdown-icon/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            一些可以美化 Markdown 的表情符号
+        </div>
+    </a>
+    
+    
+</nav>
+
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2024 Min&#39;s Blog
+            <br />
+            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/carsonip/hugo-theme-minos" target="_blank">Minos</a>
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>
