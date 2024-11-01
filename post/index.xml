@@ -1,40 +1,198 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Min&#39;s Blog</title>
     <link>https://klaypeter.github.io/post/</link>
     <description>Recent content in Posts on Min&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.123.8</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 21 Oct 2024 23:17:49 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://klaypeter.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>细说翻墙</title>
+      <link>https://klaypeter.github.io/post/%E7%BB%86%E8%AF%B4%E7%BF%BB%E5%A2%99/</link>
+      <pubDate>Fri, 01 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://klaypeter.github.io/post/%E7%BB%86%E8%AF%B4%E7%BF%BB%E5%A2%99/</guid>
+      <description>翻墙 &amp;#x1f463;
+翻墙翻墙，各个都说会说翻墙，都会翻墙，但是呢你是不是其实并不太懂翻墙的具体含义吧，那就让我们了解一下并学会使用吧&amp;#x1f43e;
+文中含引用的文章：[第一篇:超详细的科普教程 | 小帅同学的博客 (xs2021.github.io)](https://xs2021.github.io/2021/05/06/1. 翻牆科普/#!)
+这位大佬的博客主题，以及防爬机制等做得很好，全瞻仰大佬
+国内禁止的敏感词
+敏感词：vpn、翻墙、梯子、科学上网
+代替词：越狱、富强、代理、魔法上网、fq
+科普一下 1.什么是长城防火墙? 长城防火墙的英文全称叫:The Great Firewall，也就是我们俗称的”墙”。长城防火墙的存在是为了规范和监管中国互联网，它通过相关硬件和软件防火墙组成的一道过滤网，用于保护中国大陆的网络环境。它监管着所有的跨境互联网流量，并阻止中国大陆网民访问一些外部Web服务。这就是所谓的“长城防火墙”。
+2.关于科学上网 科学上网(也叫翻牆 )，所谓的“科学上网”，也就是通过一些技术手段来绕过中国长城防火墙的监管和限制，去访问一些国外的网站和服务。而想要绕过中国长城防火墙的监管和限制，就必须要使用“科学上网工具”。 翻牆有多重要，我想无需过多解释「Gmail的邮件、Youtube的视频、Google某段程序的bug、国外的公开课视频、Netflix上的新剧.… 我想先提醒读者:没有完美的翻牆软件，不要这样期望。
+3.翻牆原理和方式。 **科学上网的原理:**通过 vpn、ss、ssr、v2ray、代理等对上网流量、数据加密，以此躲避GFw (长城防火墙)检测，实现自由上网，也被用于数据传输安全、网络匿名、隐私保护亲 **适用:**Windows、Linux、Mac、Android、l0s、路由器、TV 等全平台
+下面用张图看一下整个流程
+通俗点来说:「国内网络有一个GFW监管，国内的网络无法直达国外的网站，然后找个中介(国外代理服务器)，可以绕过GFW监管，让我们的网络由国内转到国外，这时即可访问国外网站。」
+此时可能会有这样的疑问:网络转到国外后还能正常访问国内网站吗? 不用担心，目前的代理软件都有这样的功能:
+直连模式:不用代理线路，直接访问，相当于没翻牆 全局模式:不管什么网站都用代理线路访问 PAC模式:自动判断网站是国内还是国外，如果是国外则智能选择代理线路 自定义规则:国内网站走什么线路、国外网站走什么线路 目前翻牆方式介绍 1、vpn vpn 的流量特征过于明显容易被 GFW 防火墙识别，且价格昂贵，现在已不提倡使用。 2、SS、SSR、V2ray 机场 SS、SSR、V2ray 是什么? 三个都是目前科学上网比较主流的加密协议,通过加密混淆伪装成正常流量，让 GFW 防火墙识别更困难。 3、 搭建自己的科学上网服务器 需要一定动手能力，只要你有网络，几分钟便能搭建一台可以科学上网的代理服务器，科学上网的终极姿势。 上面的 ss、sSR、v2ray 机场 实际上就是替你完成了搭建这一步，直接向你提供搭建好的节点供你使用。
+此方案理论永久可行，尤其是在出现特殊情况，比如:封锁严重，大面积科学上网失效的时候作为应急方案。IP 被封更换 IP 即可，适合喜欢折腾的同学。小白建议还是用机场，省事省心。
+4、代理(Proxy)类 比如蓝灯(基于SOCKS5加密协议),在代理类的“科学上网&amp;quot;工具中，最具代表性的就是:蓝灯。在中国互联网审查还没有非常严峻的前些年，蓝灯是大部分人翻牆的首选，它也是最受欢迎的翻牆工具。但随着近几年互联网审查越来越严，蓝灯也慢慢失去了它“翻牆首选”的称号，经常掉线。尤其是在每年比较敏感的几个时间段，都会出现无法翻或者频繁掉线的情况。
+4.机场是什么? 专为翻墙而生的机场梯子
+VPN并非专为翻墙而生，而机场是。
+通常由第三方大厂承担搭建，直接向用户提供 ss、ssr、v2ray 节点服务, 免去个人搭建流程，更快捷，线路优化也更好。 机场是老司机和小白皆可的一种方案，省事省心，稳定性和速度兼顾。</description>
+    </item>
+    <item>
+      <title>攻略axios</title>
+      <link>https://klaypeter.github.io/post/%E6%94%BB%E7%95%A5axios/</link>
+      <pubDate>Mon, 28 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://klaypeter.github.io/post/%E6%94%BB%E7%95%A5axios/</guid>
+      <description>介绍： ​	Axios 是一个基于 promise 网络请求库，作用于node.js 和浏览器中。（这两个要去延申去学习噢）简单的讲就是可以发送get、post请求，&amp;lt;对于这个也是有一个历史就是Jquery&amp;gt;
+官网：起步 | Axios中文文档 | Axios中文网
+它是 isomorphic 的(即同一套代码可以运行在浏览器和node.js中)。在服务端它使用原生 node.js http 模块, 而在客户端 (浏览端) 则使用 XMLHttpRequests。
+Axios有许多的特性
+从浏览器创建 XMLHttpRequests
+从 node.js 创建 http 请求
+支持PromiseAPI
+拦截请求和响应
+转换请求和响应数据
+取消请求
+超时处理
+查询参数序列化支持嵌套项处理
+自动将请求体序列化为：
+JSON (application/json) Multipart / FormData (multipart/form-data) URL encoded form (application/x-www-form-urlencoded) 将 HTML Form 转换成 JSON 进行请求
+自动转换JSON数据
+获取浏览器和 node.js 的请求进度，并提供额外的信息（速度、剩余时间）
+为 node.js 设置带宽限制
+如何使用？ 安装 $ npm install axios $ yarn add axios $ bower install axios 为了直接使用 require 导入预构建的 CommonJS 模块（如果您的模块打包器无法自动解析它们），我们提供了以下预构建模块：</description>
+    </item>
+    <item>
+      <title>攻略Node.js</title>
+      <link>https://klaypeter.github.io/post/%E6%94%BB%E7%95%A5node.js/</link>
+      <pubDate>Mon, 28 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://klaypeter.github.io/post/%E6%94%BB%E7%95%A5node.js/</guid>
+      <description>介绍： Node把JavaScript带入到后端服务器开发
+Node的好处：
+天生的事件驱动机制加V8高性能引擎，使编写高性能Web服务轻而易举。
+通过模块化的JavaScript代码，加上函数式编程，并且无需考虑浏览器兼容性问题，直接使用最新的ECMAScript 6标准，可以完全满足工程上的需求。
+安装Node.js 从官网中下载就OK了
+参考博客：Node.js安装及环境配置超详细教程【Windows系统】_windows 安装nodejs-CSDN博客
+在Windows上安装时务必选择全部组件，包括勾选Add to Path
+安装完成后，在Windows环境下，请打开命令提示符，然后输入node -v
+在命令提示符输入node，此刻你将进入Node.js的交互环境。
+要退出Node.js环境，连按两次Ctrl+C
+npm npm是Node.js的包管理工具（package manager）
+为啥我们需要一个包管理工具呢？因为我们在Node.js上开发时，会用到很多别人写的JavaScript代码。如果我们要使用别人写的某个包，每次都根据名称搜索一下官方网站，下载代码，解压，再使用，非常繁琐。于是一个集中管理的工具应运而生：大家都把自己开发的模块打包后放到npm官网上，如果要使用，直接通过npm安装就可以直接用，不用管代码存在哪，应该从哪下载。
+用node来运行文件
+C:\Workspace&amp;gt; node hello.jsHello, world. 模块 要在模块中对外输出变量，用：
+module.exports = variable; 输出的变量可以是任意对象、函数、数组等等。
+要引入其他模块输出的对象，用：
+const foo = require(&amp;#39;other_module&amp;#39;); 引入的对象具体是什么，取决于引入模块输出的对象。
+使用ESM模块 随着ES 6标准的推出，JavaScript语言本身终于也迎来了原生内置的模块支持，称为ECMAScript Modules（简称ESM），不仅可以直接在浏览器中使用模块，也可以在Node.js中使用ESM模块。
+不使用ESM模块时，我们用module.exports导出可供外部使用的JS对象，例如，以下模块导出了两个函数：
+&amp;#39;use strict&amp;#39;; let s = &amp;#39;Hello&amp;#39;; function out(prompt, name) { console.log(`${prompt}, ${name}!`); } function greet(name) { out(s, name); } function hi(name) { out(&amp;#39;Hi&amp;#39;, name); } module.exports = { greet: greet, hi: hi }; 要把上述代码改为ESM模块，我们用export标识需要导出的函数：</description>
+    </item>
     <item>
       <title>Test</title>
       <link>https://klaypeter.github.io/post/test/</link>
       <pubDate>Mon, 21 Oct 2024 23:17:49 +0800</pubDate>
       <guid>https://klaypeter.github.io/post/test/</guid>
-      <description>这是一个test博客</description>
+      <description>欢迎来到我的博客</description>
     </item>
     <item>
       <title>Myfirst</title>
       <link>https://klaypeter.github.io/post/myfirst/</link>
       <pubDate>Mon, 21 Oct 2024 23:17:44 +0800</pubDate>
       <guid>https://klaypeter.github.io/post/myfirst/</guid>
-      <description></description>
+      <description>123</description>
     </item>
     <item>
       <title>一些可以美化 Markdown 的表情符号</title>
       <link>https://klaypeter.github.io/post/markdown-icon/</link>
       <pubDate>Sat, 12 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://klaypeter.github.io/post/markdown-icon/</guid>
-      <description>参考&#xA;Complete list of github markdown emoji markup&#xA;常用的：&#xA;🐾 :feet:&#xA;💭 :thought_balloon:&#xA;👊 :punch:&#xA;💩 :shit:&#xA;😊 :blush:&#xA;❤️ :heart:&#xA;✌️ :v:&#xA;💧 :droplet:&#xA;☀️ :sunny:&#xA;🌐 :globe_with_meridians:&#xA;🌗 :last_quarter_moon:&#xA;🌍 :earth_africa:&#xA;⛅️ :partly_sunny:&#xA;💻 :computer:&#xA;📁 :file_folder:&#xA;✒️ :black_nib:&#xA;📝 :pencil:&#xA;⚠️ :warning:&#xA;🔴 :red_circle:&#xA;⭕️ :o:&#xA;✔️ :heavy_check_mark:&#xA;🚦 :vertical_traffic_light:</description>
+      <description>参考
+Complete list of github markdown emoji markup
+常用的：
+🐾 :feet:
+💭 :thought_balloon:
+👊 :punch:
+💩 :shit:
+😊 :blush:
+❤️ :heart:
+✌️ :v:
+💧 :droplet:
+☀️ :sunny:
+🌐 :globe_with_meridians:
+🌗 :last_quarter_moon:
+🌍 :earth_africa:
+⛅️ :partly_sunny:
+💻 :computer:
+📁 :file_folder:
+✒️ :black_nib:
+📝 :pencil:
+⚠️ :warning:
+🔴 :red_circle:
+⭕️ :o:
+✔️ :heavy_check_mark:
+🚦 :vertical_traffic_light:</description>
+    </item>
+    <item>
+      <title>前端的一个小小的学习建议（基础篇）</title>
+      <link>https://klaypeter.github.io/post/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE/</link>
+      <pubDate>Sat, 12 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://klaypeter.github.io/post/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE/</guid>
+      <description>&amp;#x1f43e; 首先你们从大一就可以开始学习前端的相关知识，我觉得太棒了 ，因为我是一路摸索滚打才慢慢找到路子的，并且基本比你们晚一年的时间投入学习的，所以对你们抱有很大的期待，我其实水平也不算特别高，但也有一些自己的学习想法和思考，希望能给大家带来点帮助！&amp;#x1f44a;
+&amp;#x1f4dd; 基础 建议的是在mdn官网跟着学习一系列
+html 基本必学，启蒙之一，最不可以缺少的
+css 这是我个人感觉使用最难的部分了，感觉语法什么的还行，但是真正做项目的时候会发现，太难啦！！！！我css还需继续加强，我们共同努力&amp;#x1f44a;
+一些css的基础用法得熟练，不然你会不快乐并且效率很低的
+记住CSS的数据类型
+读懂CSS的语法
+多动手练习
+JavaScript 这个是特别重要的，是前端的逻辑，学习难度也是最大的
+跟着教程来学，多运用、敲案例
+&amp;#x1f4dd; 多看大佬博客文章或者书籍 几位大佬的链接博客：
+Flex 布局教程：语法篇 - 阮一峰的网络日志
+张鑫旭-鑫空间-鑫生活 (zhangxinxu.com)
+chokcoco/iCSS: 不止于 CSS (github.com)
+Web前端从入门到精通 - 随笔分类 - VectorX - 博客园
+书籍推荐：（恰逢双11，平时上水课也可以看看）
+《JavaScript高级程序设计（第3版）》红皮书
+《JavaScript权威指南 》犀牛书
+《CSS权威指南》
+&amp;#x1f4dd; 资源and网站： 计算机基础：
+计算机网络基础：
+图解 tcp/ip 图解 Http 算法和数据结构：
+算法图解 数据库 ：
+MySQL 基本操作 Linux：
+穷佐罗的 Linux 图书 [中国科技大学的 Linux 图书]( 前端：
+面向开发者的 Web 技术 | MDN
+现代 JavaScript 教程</description>
     </item>
     <item>
       <title>基于Github &#43; JsDelivr搭建属于自己的博客</title>
       <link>https://klaypeter.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/</link>
       <pubDate>Sat, 12 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://klaypeter.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/</guid>
-      <description>图床是什么？ 图床其实是互联网中存储图片的空间，举个栗子：&#xA;假设你在微博分享一张图片，你的粉丝可以通过互联网看到你分享的图片，那么他是去访问你的手机的相册吗？其实不是的，你分享图片，也就是把图片上传到微博的服务器，微博将为你生成一个独一无二的访问链接，这个链接指向的空间其实就是图床。&#xA;为什么要用图床？ 因为像我一样热爱在网上分享博客的人，需要使用图床来进行表达。使用图床的人通常采用Markdown的方式去编辑文字。&#xA;既然想去学习，去使用。那就开始实现吧！ 可以推荐去看的教程有什么？ 1.https://mp.weixin.qq.com/s/l7rB4uhs7STzAFohc9Bw1g&#xA;2.https://zhuanlan.zhihu.com/p/346410333&#xA;有什么直接去使用的网址? https://www.imgtp.com/ Img图床免费好用（图片上传就会产生图床地址链接） https://www.freeimg.cn/ Freeimg 需要付费 那又如何自己搭建一个图床呢？&#xA;这里推荐Github + JsDelivr的方式&#xA;Github + JsDelivr Github更稳定,配置起来也还是很方便&#xA;师兄文章说的话：&#xA;推荐github+JsDeliver的理由如下：&#xA;快速方便：只需要建立仓库配置一下接口 稳定，毕竟大厂商（但需要注意的是Github图片仓库过大的时候记得换仓库） JsDelivr解决Github在国内访问慢以及流量问题 一 首先新建一个公开仓库： 二 上传一张图片到仓库之后，就已经可以当做图床使用 //我蠢，我还不会上传文件或者图片，我学我学&#xA;1.创建一个新文件&#xA;2.按步骤来完成配置&#xA;3.然后点击该文件，上传文件就好啦&#xA;效果要这样的哦&#xA;4.怎么让图片显示呢？ 先复制图片的地址&#xA;5.编写代码&#xA;![](复制的路径) //显示图片的语法 那会创建了，那就要使用，看看使用的情况 就这样了&#xA;那怎么在外面去使用呢？例如：Markdown 一般上传一张图片到仓库之后，就已经可以当做图床使用&#xA;蠢蠢的我想到了cv大法，但是图片显示不出来&#xA;后来知道了:&#xA;![](https://github.com/KlayPeter/mmx_img/blob/main/iu%E5%A3%81%E7%BA%B8.webp) --- 将blob改为raw ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 不信试试 真的诶！ github加载图片是很慢的，怎么去引入JsDeliver的加速地址？&#xA;github引入JsDeliver的加速地址 jsDelivr简介 是一个免费、快速和可信赖的CDN加速服务，声称它每个月可以支撑680亿次的请求。服务在Github上是开源的，jsDelivr地址 。目前，它提供了针对npm、Github和WordPress的加速服务，只需要一行代码就可以获得加速效果。只要我们的项目中用到了第三方的静态资源，譬如JavaScript脚本，css样式表，图片，图标，Flash等静态资源文件都应该考虑接入到CDN中&#xA;开始操作： 首先在图床仓库中点击release发布版本&#xA;自定义发布版（记得版本填写时要enter）&#xA;这是github图上的原始路径 ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 加速之后！！！----- https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径 ##注意不要把`raw/main/`加进去哦 ![](https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp) 上面我女神哈哈哈哈哈！！&#xA;知道怎么去手动创建了，但是好累，费时间，那么有什么工具提供给我们学习呢?</description>
+      <description>图床是什么？ 图床其实是互联网中存储图片的空间，举个栗子：
+假设你在微博分享一张图片，你的粉丝可以通过互联网看到你分享的图片，那么他是去访问你的手机的相册吗？其实不是的，你分享图片，也就是把图片上传到微博的服务器，微博将为你生成一个独一无二的访问链接，这个链接指向的空间其实就是图床。
+为什么要用图床？ 因为像我一样热爱在网上分享博客的人，需要使用图床来进行表达。使用图床的人通常采用Markdown的方式去编辑文字。
+既然想去学习，去使用。那就开始实现吧！ 可以推荐去看的教程有什么？ 1.https://mp.weixin.qq.com/s/l7rB4uhs7STzAFohc9Bw1g
+2.https://zhuanlan.zhihu.com/p/346410333
+有什么直接去使用的网址? https://www.imgtp.com/ Img图床免费好用（图片上传就会产生图床地址链接） https://www.freeimg.cn/ Freeimg 需要付费 那又如何自己搭建一个图床呢？
+这里推荐Github + JsDelivr的方式
+Github + JsDelivr Github更稳定,配置起来也还是很方便
+师兄文章说的话：
+推荐github+JsDeliver的理由如下：
+快速方便：只需要建立仓库配置一下接口 稳定，毕竟大厂商（但需要注意的是Github图片仓库过大的时候记得换仓库） JsDelivr解决Github在国内访问慢以及流量问题 一 首先新建一个公开仓库： 二 上传一张图片到仓库之后，就已经可以当做图床使用 //我蠢，我还不会上传文件或者图片，我学我学
+1.创建一个新文件
+2.按步骤来完成配置
+3.然后点击该文件，上传文件就好啦
+效果要这样的哦
+4.怎么让图片显示呢？ 先复制图片的地址
+5.编写代码
+![](复制的路径) //显示图片的语法 那会创建了，那就要使用，看看使用的情况 就这样了
+那怎么在外面去使用呢？例如：Markdown 一般上传一张图片到仓库之后，就已经可以当做图床使用
+蠢蠢的我想到了cv大法，但是图片显示不出来
+后来知道了:
+![](https://github.com/KlayPeter/mmx_img/blob/main/iu%E5%A3%81%E7%BA%B8.webp) --- 将blob改为raw ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 不信试试 真的诶！ github加载图片是很慢的，怎么去引入JsDeliver的加速地址？
+github引入JsDeliver的加速地址 jsDelivr简介 是一个免费、快速和可信赖的CDN加速服务，声称它每个月可以支撑680亿次的请求。服务在Github上是开源的，jsDelivr地址 。目前，它提供了针对npm、Github和WordPress的加速服务，只需要一行代码就可以获得加速效果。只要我们的项目中用到了第三方的静态资源，譬如JavaScript脚本，css样式表，图片，图标，Flash等静态资源文件都应该考虑接入到CDN中
+开始操作： 首先在图床仓库中点击release发布版本
+自定义发布版（记得版本填写时要enter）
+这是github图上的原始路径 ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 加速之后！！！----- https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径 ##注意不要把`raw/main/`加进去哦 ![](https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp) 上面我女神哈哈哈哈哈！！
+知道怎么去手动创建了，但是好累，费时间，那么有什么工具提供给我们学习呢?</description>
     </item>
   </channel>
 </rss>

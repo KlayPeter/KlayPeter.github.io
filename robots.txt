@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://klaypeter.github.io/sitemap.xml

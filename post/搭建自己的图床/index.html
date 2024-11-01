@@ -1,86 +1,292 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>基于Github &#43; JsDelivr搭建属于自己的博客 // Min&#39;s Blog</title>
+<html lang="en" dir="auto">
 
-    <meta charset="utf-8">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>基于Github &#43; JsDelivr搭建属于自己的博客 | Min&#39;s Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="图床是什么？ 图床其实是互联网中存储图片的空间，举个栗子：
+假设你在微博分享一张图片，你的粉丝可以通过互联网看到你分享的图片，那么他是去访问你的手机的相册吗？其实不是的，你分享图片，也就是把图片上传到微博的服务器，微博将为你生成一个独一无二的访问链接，这个链接指向的空间其实就是图床。
+为什么要用图床？ 因为像我一样热爱在网上分享博客的人，需要使用图床来进行表达。使用图床的人通常采用Markdown的方式去编辑文字。
+既然想去学习，去使用。那就开始实现吧！ 可以推荐去看的教程有什么？ 1.https://mp.weixin.qq.com/s/l7rB4uhs7STzAFohc9Bw1g
+2.https://zhuanlan.zhihu.com/p/346410333
+有什么直接去使用的网址? https://www.imgtp.com/ Img图床免费好用（图片上传就会产生图床地址链接） https://www.freeimg.cn/ Freeimg 需要付费 那又如何自己搭建一个图床呢？
+这里推荐Github &#43; JsDelivr的方式
+Github &#43; JsDelivr Github更稳定,配置起来也还是很方便
+师兄文章说的话：
+推荐github&#43;JsDeliver的理由如下：
+快速方便：只需要建立仓库配置一下接口 稳定，毕竟大厂商（但需要注意的是Github图片仓库过大的时候记得换仓库） JsDelivr解决Github在国内访问慢以及流量问题 一 首先新建一个公开仓库： 二 上传一张图片到仓库之后，就已经可以当做图床使用 //我蠢，我还不会上传文件或者图片，我学我学
+1.创建一个新文件
+2.按步骤来完成配置
+3.然后点击该文件，上传文件就好啦
+效果要这样的哦
+4.怎么让图片显示呢？ 先复制图片的地址
+5.编写代码
+![](复制的路径) //显示图片的语法 那会创建了，那就要使用，看看使用的情况 就这样了
+那怎么在外面去使用呢？例如：Markdown 一般上传一张图片到仓库之后，就已经可以当做图床使用
+蠢蠢的我想到了cv大法，但是图片显示不出来
+后来知道了:
+![](https://github.com/KlayPeter/mmx_img/blob/main/iu%E5%A3%81%E7%BA%B8.webp) --- 将blob改为raw ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 不信试试 真的诶！ github加载图片是很慢的，怎么去引入JsDeliver的加速地址？
+github引入JsDeliver的加速地址 jsDelivr简介 是一个免费、快速和可信赖的CDN加速服务，声称它每个月可以支撑680亿次的请求。服务在Github上是开源的，jsDelivr地址 。目前，它提供了针对npm、Github和WordPress的加速服务，只需要一行代码就可以获得加速效果。只要我们的项目中用到了第三方的静态资源，譬如JavaScript脚本，css样式表，图片，图标，Flash等静态资源文件都应该考虑接入到CDN中
+开始操作： 首先在图床仓库中点击release发布版本
+自定义发布版（记得版本填写时要enter）
+这是github图上的原始路径 ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 加速之后！！！----- https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径 ##注意不要把`raw/main/`加进去哦 ![](https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp) 上面我女神哈哈哈哈哈！！
+知道怎么去手动创建了，但是好累，费时间，那么有什么工具提供给我们学习呢?">
+<meta name="author" content="KlayPeter">
+<link rel="canonical" href="https://klaypeter.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://klaypeter.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://klaypeter.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://klaypeter.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://klaypeter.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://klaypeter.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://klaypeter.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="基于Github &#43; JsDelivr搭建属于自己的博客" />
+<meta property="og:description" content="图床是什么？ 图床其实是互联网中存储图片的空间，举个栗子：
+假设你在微博分享一张图片，你的粉丝可以通过互联网看到你分享的图片，那么他是去访问你的手机的相册吗？其实不是的，你分享图片，也就是把图片上传到微博的服务器，微博将为你生成一个独一无二的访问链接，这个链接指向的空间其实就是图床。
+为什么要用图床？ 因为像我一样热爱在网上分享博客的人，需要使用图床来进行表达。使用图床的人通常采用Markdown的方式去编辑文字。
+既然想去学习，去使用。那就开始实现吧！ 可以推荐去看的教程有什么？ 1.https://mp.weixin.qq.com/s/l7rB4uhs7STzAFohc9Bw1g
+2.https://zhuanlan.zhihu.com/p/346410333
+有什么直接去使用的网址? https://www.imgtp.com/ Img图床免费好用（图片上传就会产生图床地址链接） https://www.freeimg.cn/ Freeimg 需要付费 那又如何自己搭建一个图床呢？
+这里推荐Github &#43; JsDelivr的方式
+Github &#43; JsDelivr Github更稳定,配置起来也还是很方便
+师兄文章说的话：
+推荐github&#43;JsDeliver的理由如下：
+快速方便：只需要建立仓库配置一下接口 稳定，毕竟大厂商（但需要注意的是Github图片仓库过大的时候记得换仓库） JsDelivr解决Github在国内访问慢以及流量问题 一 首先新建一个公开仓库： 二 上传一张图片到仓库之后，就已经可以当做图床使用 //我蠢，我还不会上传文件或者图片，我学我学
+1.创建一个新文件
+2.按步骤来完成配置
+3.然后点击该文件，上传文件就好啦
+效果要这样的哦
+4.怎么让图片显示呢？ 先复制图片的地址
+5.编写代码
+![](复制的路径) //显示图片的语法 那会创建了，那就要使用，看看使用的情况 就这样了
+那怎么在外面去使用呢？例如：Markdown 一般上传一张图片到仓库之后，就已经可以当做图床使用
+蠢蠢的我想到了cv大法，但是图片显示不出来
+后来知道了:
+![](https://github.com/KlayPeter/mmx_img/blob/main/iu%E5%A3%81%E7%BA%B8.webp) --- 将blob改为raw ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 不信试试 真的诶！ github加载图片是很慢的，怎么去引入JsDeliver的加速地址？
+github引入JsDeliver的加速地址 jsDelivr简介 是一个免费、快速和可信赖的CDN加速服务，声称它每个月可以支撑680亿次的请求。服务在Github上是开源的，jsDelivr地址 。目前，它提供了针对npm、Github和WordPress的加速服务，只需要一行代码就可以获得加速效果。只要我们的项目中用到了第三方的静态资源，譬如JavaScript脚本，css样式表，图片，图标，Flash等静态资源文件都应该考虑接入到CDN中
+开始操作： 首先在图床仓库中点击release发布版本
+自定义发布版（记得版本填写时要enter）
+这是github图上的原始路径 ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 加速之后！！！----- https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径 ##注意不要把`raw/main/`加进去哦 ![](https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp) 上面我女神哈哈哈哈哈！！
+知道怎么去手动创建了，但是好累，费时间，那么有什么工具提供给我们学习呢?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://klaypeter.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-10-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-10-12T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="基于Github &#43; JsDelivr搭建属于自己的博客"/>
+<meta name="twitter:description" content="图床是什么？ 图床其实是互联网中存储图片的空间，举个栗子：
+假设你在微博分享一张图片，你的粉丝可以通过互联网看到你分享的图片，那么他是去访问你的手机的相册吗？其实不是的，你分享图片，也就是把图片上传到微博的服务器，微博将为你生成一个独一无二的访问链接，这个链接指向的空间其实就是图床。
+为什么要用图床？ 因为像我一样热爱在网上分享博客的人，需要使用图床来进行表达。使用图床的人通常采用Markdown的方式去编辑文字。
+既然想去学习，去使用。那就开始实现吧！ 可以推荐去看的教程有什么？ 1.https://mp.weixin.qq.com/s/l7rB4uhs7STzAFohc9Bw1g
+2.https://zhuanlan.zhihu.com/p/346410333
+有什么直接去使用的网址? https://www.imgtp.com/ Img图床免费好用（图片上传就会产生图床地址链接） https://www.freeimg.cn/ Freeimg 需要付费 那又如何自己搭建一个图床呢？
+这里推荐Github &#43; JsDelivr的方式
+Github &#43; JsDelivr Github更稳定,配置起来也还是很方便
+师兄文章说的话：
+推荐github&#43;JsDeliver的理由如下：
+快速方便：只需要建立仓库配置一下接口 稳定，毕竟大厂商（但需要注意的是Github图片仓库过大的时候记得换仓库） JsDelivr解决Github在国内访问慢以及流量问题 一 首先新建一个公开仓库： 二 上传一张图片到仓库之后，就已经可以当做图床使用 //我蠢，我还不会上传文件或者图片，我学我学
+1.创建一个新文件
+2.按步骤来完成配置
+3.然后点击该文件，上传文件就好啦
+效果要这样的哦
+4.怎么让图片显示呢？ 先复制图片的地址
+5.编写代码
+![](复制的路径) //显示图片的语法 那会创建了，那就要使用，看看使用的情况 就这样了
+那怎么在外面去使用呢？例如：Markdown 一般上传一张图片到仓库之后，就已经可以当做图床使用
+蠢蠢的我想到了cv大法，但是图片显示不出来
+后来知道了:
+![](https://github.com/KlayPeter/mmx_img/blob/main/iu%E5%A3%81%E7%BA%B8.webp) --- 将blob改为raw ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 不信试试 真的诶！ github加载图片是很慢的，怎么去引入JsDeliver的加速地址？
+github引入JsDeliver的加速地址 jsDelivr简介 是一个免费、快速和可信赖的CDN加速服务，声称它每个月可以支撑680亿次的请求。服务在Github上是开源的，jsDelivr地址 。目前，它提供了针对npm、Github和WordPress的加速服务，只需要一行代码就可以获得加速效果。只要我们的项目中用到了第三方的静态资源，譬如JavaScript脚本，css样式表，图片，图标，Flash等静态资源文件都应该考虑接入到CDN中
+开始操作： 首先在图床仓库中点击release发布版本
+自定义发布版（记得版本填写时要enter）
+这是github图上的原始路径 ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 加速之后！！！----- https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径 ##注意不要把`raw/main/`加进去哦 ![](https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp) 上面我女神哈哈哈哈哈！！
+知道怎么去手动创建了，但是好累，费时间，那么有什么工具提供给我们学习呢?"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://klaypeter.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "基于Github + JsDelivr搭建属于自己的博客",
+      "item": "https://klaypeter.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "基于Github + JsDelivr搭建属于自己的博客",
+  "name": "基于Github \u002b JsDelivr搭建属于自己的博客",
+  "description": "图床是什么？ 图床其实是互联网中存储图片的空间，举个栗子：\n假设你在微博分享一张图片，你的粉丝可以通过互联网看到你分享的图片，那么他是去访问你的手机的相册吗？其实不是的，你分享图片，也就是把图片上传到微博的服务器，微博将为你生成一个独一无二的访问链接，这个链接指向的空间其实就是图床。\n为什么要用图床？ 因为像我一样热爱在网上分享博客的人，需要使用图床来进行表达。使用图床的人通常采用Markdown的方式去编辑文字。\n既然想去学习，去使用。那就开始实现吧！ 可以推荐去看的教程有什么？ 1.https://mp.weixin.qq.com/s/l7rB4uhs7STzAFohc9Bw1g\n2.https://zhuanlan.zhihu.com/p/346410333\n有什么直接去使用的网址? https://www.imgtp.com/ Img图床免费好用（图片上传就会产生图床地址链接） https://www.freeimg.cn/ Freeimg 需要付费 那又如何自己搭建一个图床呢？\n这里推荐Github + JsDelivr的方式\nGithub + JsDelivr Github更稳定,配置起来也还是很方便\n师兄文章说的话：\n推荐github+JsDeliver的理由如下：\n快速方便：只需要建立仓库配置一下接口 稳定，毕竟大厂商（但需要注意的是Github图片仓库过大的时候记得换仓库） JsDelivr解决Github在国内访问慢以及流量问题 一 首先新建一个公开仓库： 二 上传一张图片到仓库之后，就已经可以当做图床使用 //我蠢，我还不会上传文件或者图片，我学我学\n1.创建一个新文件\n2.按步骤来完成配置\n3.然后点击该文件，上传文件就好啦\n效果要这样的哦\n4.怎么让图片显示呢？ 先复制图片的地址\n5.编写代码\n![](复制的路径) //显示图片的语法 那会创建了，那就要使用，看看使用的情况 就这样了\n那怎么在外面去使用呢？例如：Markdown 一般上传一张图片到仓库之后，就已经可以当做图床使用\n蠢蠢的我想到了cv大法，但是图片显示不出来\n后来知道了:\n![](https://github.com/KlayPeter/mmx_img/blob/main/iu%E5%A3%81%E7%BA%B8.webp) --- 将blob改为raw ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 不信试试 真的诶！ github加载图片是很慢的，怎么去引入JsDeliver的加速地址？\ngithub引入JsDeliver的加速地址 jsDelivr简介 是一个免费、快速和可信赖的CDN加速服务，声称它每个月可以支撑680亿次的请求。服务在Github上是开源的，jsDelivr地址 。目前，它提供了针对npm、Github和WordPress的加速服务，只需要一行代码就可以获得加速效果。只要我们的项目中用到了第三方的静态资源，譬如JavaScript脚本，css样式表，图片，图标，Flash等静态资源文件都应该考虑接入到CDN中\n开始操作： 首先在图床仓库中点击release发布版本\n自定义发布版（记得版本填写时要enter）\n这是github图上的原始路径 ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 加速之后！！！----- https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径 ##注意不要把`raw/main/`加进去哦 ![](https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp) 上面我女神哈哈哈哈哈！！\n知道怎么去手动创建了，但是好累，费时间，那么有什么工具提供给我们学习呢?",
+  "keywords": [
     
-    
-    
-
-        <meta property="og:title" content="基于Github &#43; JsDelivr搭建属于自己的博客" />
-    <meta property="og:description" content="" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en" />
-    <meta property="og:url" content="https://klaypeter.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" />
-    
-
-    <link rel="shortcut icon" href="/favicon.ico">
-
-    <link href="https://klaypeter.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
-    <link href="https://klaypeter.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" href="https://klaypeter.github.io/css/style.css">
-    
-
-    <meta name="generator" content="Hugo 0.123.8">
+  ],
+  "articleBody": "图床是什么？ 图床其实是互联网中存储图片的空间，举个栗子：\n假设你在微博分享一张图片，你的粉丝可以通过互联网看到你分享的图片，那么他是去访问你的手机的相册吗？其实不是的，你分享图片，也就是把图片上传到微博的服务器，微博将为你生成一个独一无二的访问链接，这个链接指向的空间其实就是图床。\n为什么要用图床？ 因为像我一样热爱在网上分享博客的人，需要使用图床来进行表达。使用图床的人通常采用Markdown的方式去编辑文字。\n既然想去学习，去使用。那就开始实现吧！ 可以推荐去看的教程有什么？ 1.https://mp.weixin.qq.com/s/l7rB4uhs7STzAFohc9Bw1g\n2.https://zhuanlan.zhihu.com/p/346410333\n有什么直接去使用的网址? https://www.imgtp.com/ Img图床免费好用（图片上传就会产生图床地址链接） https://www.freeimg.cn/ Freeimg 需要付费 那又如何自己搭建一个图床呢？\n这里推荐Github + JsDelivr的方式\nGithub + JsDelivr Github更稳定,配置起来也还是很方便\n师兄文章说的话：\n推荐github+JsDeliver的理由如下：\n快速方便：只需要建立仓库配置一下接口 稳定，毕竟大厂商（但需要注意的是Github图片仓库过大的时候记得换仓库） JsDelivr解决Github在国内访问慢以及流量问题 一 首先新建一个公开仓库： 二 上传一张图片到仓库之后，就已经可以当做图床使用 //我蠢，我还不会上传文件或者图片，我学我学\n1.创建一个新文件\n2.按步骤来完成配置\n3.然后点击该文件，上传文件就好啦\n效果要这样的哦\n4.怎么让图片显示呢？ 先复制图片的地址\n5.编写代码\n![](复制的路径) //显示图片的语法 那会创建了，那就要使用，看看使用的情况 就这样了\n那怎么在外面去使用呢？例如：Markdown 一般上传一张图片到仓库之后，就已经可以当做图床使用\n蠢蠢的我想到了cv大法，但是图片显示不出来\n后来知道了:\n![](https://github.com/KlayPeter/mmx_img/blob/main/iu%E5%A3%81%E7%BA%B8.webp) --- 将blob改为raw ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 不信试试 真的诶！ github加载图片是很慢的，怎么去引入JsDeliver的加速地址？\ngithub引入JsDeliver的加速地址 jsDelivr简介 是一个免费、快速和可信赖的CDN加速服务，声称它每个月可以支撑680亿次的请求。服务在Github上是开源的，jsDelivr地址 。目前，它提供了针对npm、Github和WordPress的加速服务，只需要一行代码就可以获得加速效果。只要我们的项目中用到了第三方的静态资源，譬如JavaScript脚本，css样式表，图片，图标，Flash等静态资源文件都应该考虑接入到CDN中\n开始操作： 首先在图床仓库中点击release发布版本\n自定义发布版（记得版本填写时要enter）\n这是github图上的原始路径 ![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp) 加速之后！！！----- https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径 ##注意不要把`raw/main/`加进去哦 ![](https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp) 上面我女神哈哈哈哈哈！！\n知道怎么去手动创建了，但是好累，费时间，那么有什么工具提供给我们学习呢?\n采用工具来帮我们做事 PicGo：一个用于快速上传图片并获取图片链接的跨平台工具 uPic：功能和上面一样，纯 macOS 系统支持，所以在 mac 下面交互体验比上面流畅不少，还有对应移动端 APP 上面两款工具使用方式都是一样的，针对Github做图床都需要获取token供第三方图床工具使用。\n现在就让我们来学习学习使用PicGo来实现上传github图床吧！ 首先先下载PicGo 到官网下载即可https://picgo.github.io/PicGo-Doc/zh/guide/#picgo-is-here\n#run ./PicGo-2.4.0-beta.6.AppImage 然后打开PicGo在PicGo里面进行配置( 每一项都要配置清楚 ) 其中的token是十分重要的，我来带大家生成一下这个token 1.setting—» Developer setting —» Personal access tokens —-» token( classic ) ——» Generate new token —\u003e (the second) New personal access token(classic) 将这些东西配置好之后，就可以正常上传图床啦！（留意token，库名等等的正确性）\n最后再把加速链接jsdelivr设置一下, 就大功告成啦！\nhttps://fastly.jsdelivr.net/gh/[Username]/[Ku]@main 到这里就结束啦，好好写markdown和博客吧！\n参考博客：\nhttps://zhuanlan.zhihu.com/p/346643522\n/posts/first-blog/ “First Blog”)\n",
+  "wordCount" : "120",
+  "inLanguage": "en",
+  "datePublished": "2024-10-12T00:00:00Z",
+  "dateModified": "2024-10-12T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "KlayPeter"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://klaypeter.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Min's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://klaypeter.github.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-<body>
-<div id="container">
-    <header id="header">
-    <div id="header-outer" class="outer">
-        <div id="header-inner" class="inner">
-            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
-            <a id="logo" class="logo-text" href="https://klaypeter.github.io/">Min&#39;s Blog</a>
-            <nav id="main-nav">
-                
-            </nav>
-            <nav id="sub-nav">
-                <div id="search-form-wrap">
-                </div>
-            </nav>
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://klaypeter.github.io/" accesskey="h" title="Min&#39;s Blog (Alt + H)">Min&#39;s Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
         </div>
-    </div>
+        <ul id="menu">
+            <li>
+                <a href="https://klaypeter.github.io/" title="首页">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://klaypeter.github.io/about/" title="关于">
+                    <span>关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://klaypeter.github.io/contact/" title="联系">
+                    <span>联系</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </header>
+<main class="main">
 
-    <section id="main" class="outer">
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        <header class="article-header">
-            <h1 class="article-title" itemprop="name">基于Github &#43; JsDelivr搭建属于自己的博客</h1>
-        </header>
-        
-        <div class="article-meta">
-            <a href="/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" class="article-date">
-                <time datetime='2024-10-12T00:00:00.000&#43;00:00' itemprop="datePublished">2024-10-12</time>
-            </a>
-            
-            
-            
-        </div>
-        <div class="article-entry" itemprop="articleBody">
-            <h2 id="图床是什么">图床是什么？</h2>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      基于Github &#43; JsDelivr搭建属于自己的博客
+    </h1>
+    <div class="post-meta"><span title='2024-10-12 00:00:00 +0000 UTC'>October 12, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;KlayPeter
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="图床是什么">图床是什么？<a hidden class="anchor" aria-hidden="true" href="#图床是什么">#</a></h2>
 <p>图床其实是互联网中存储图片的空间，举个栗子：</p>
 <p>假设你在微博分享一张图片，你的粉丝可以通过互联网看到你分享的图片，那么他是去访问你的手机的相册吗？其实不是的，你分享图片，也就是把图片上传到微博的服务器，微博将为你生成一个独一无二的访问链接，这个链接指向的空间其实就是图床。</p>
-<h2 id="为什么要用图床">为什么要用图床？</h2>
+<h2 id="为什么要用图床">为什么要用图床？<a hidden class="anchor" aria-hidden="true" href="#为什么要用图床">#</a></h2>
 <p>因为像我一样热爱在网上分享博客的人，需要使用图床来进行表达。使用图床的人通常采用Markdown的方式去编辑文字。</p>
-<h3 id="既然想去学习去使用那就开始实现吧">既然想去学习，去使用。那就开始实现吧！</h3>
-<h4 id="可以推荐去看的教程有什么">可以推荐去看的教程有什么？</h4>
+<h3 id="既然想去学习去使用那就开始实现吧">既然想去学习，去使用。那就开始实现吧！<a hidden class="anchor" aria-hidden="true" href="#既然想去学习去使用那就开始实现吧">#</a></h3>
+<h4 id="可以推荐去看的教程有什么">可以推荐去看的教程有什么？<a hidden class="anchor" aria-hidden="true" href="#可以推荐去看的教程有什么">#</a></h4>
 <p>1.https://mp.weixin.qq.com/s/l7rB4uhs7STzAFohc9Bw1g</p>
 <p>2.https://zhuanlan.zhihu.com/p/346410333</p>
-<h4 id="有什么直接去使用的网址">有什么直接去使用的网址?</h4>
+<h4 id="有什么直接去使用的网址">有什么直接去使用的网址?<a hidden class="anchor" aria-hidden="true" href="#有什么直接去使用的网址">#</a></h4>
 <ol>
 <li><a href="https://www.imgtp.com/">https://www.imgtp.com/</a> Img图床免费好用（图片上传就会产生图床地址链接）</li>
 <li><a href="https://www.freeimg.cn/">https://www.freeimg.cn/</a> Freeimg 需要付费</li>
 </ol>
 <p>那又如何自己搭建一个图床呢？</p>
 <p>这里推荐<code>Github</code> + <code>JsDelivr</code>的方式</p>
-<h5 id="github--jsdelivr">Github + JsDelivr</h5>
+<h5 id="github--jsdelivr">Github + JsDelivr<a hidden class="anchor" aria-hidden="true" href="#github--jsdelivr">#</a></h5>
 <p>Github更稳定,配置起来也还是很方便</p>
 <p>师兄文章说的话：</p>
 <blockquote>
@@ -91,28 +297,38 @@
 <li><code>JsDelivr</code>解决<code>Github</code>在国内访问慢以及流量问题</li>
 </ul>
 </blockquote>
-<h4 id="一-首先新建一个公开仓库">一 首先新建一个公开仓库：</h4>
-<p><img src="https://img2.imgtp.com/2024/03/18/hVx0ZkL0.png" alt="image-20240310000108257.png"></p>
-<h4 id="二-上传一张图片到仓库之后就已经可以当做图床使用">二 上传一张图片到仓库之后，就已经可以当做图床使用</h4>
+<h4 id="一-首先新建一个公开仓库">一 首先新建一个公开仓库：<a hidden class="anchor" aria-hidden="true" href="#一-首先新建一个公开仓库">#</a></h4>
+<p><img loading="lazy" src="https://img2.imgtp.com/2024/03/18/hVx0ZkL0.png" alt="image-20240310000108257.png"  />
+</p>
+<h4 id="二-上传一张图片到仓库之后就已经可以当做图床使用">二 上传一张图片到仓库之后，就已经可以当做图床使用<a hidden class="anchor" aria-hidden="true" href="#二-上传一张图片到仓库之后就已经可以当做图床使用">#</a></h4>
 <p>//我蠢，我还不会上传文件或者图片，我学我学</p>
 <p>1.创建一个新文件</p>
-<p><img src="https://img2.imgtp.com/2024/03/18/12saAvYD.png" alt="image-20240310002157117.png"></p>
+<p><img loading="lazy" src="https://img2.imgtp.com/2024/03/18/12saAvYD.png" alt="image-20240310002157117.png"  />
+</p>
 <p>2.按步骤来完成配置</p>
-<p><img src="https://img2.imgtp.com/2024/03/18/12saAvYD.png" alt="image-20240310002157117.png"></p>
-<p><img src="https://img2.imgtp.com/2024/03/18/DsWh4Pyh.png" alt="image-20240310001714439.png"></p>
+<p><img loading="lazy" src="https://img2.imgtp.com/2024/03/18/12saAvYD.png" alt="image-20240310002157117.png"  />
+</p>
+<p><img loading="lazy" src="https://img2.imgtp.com/2024/03/18/DsWh4Pyh.png" alt="image-20240310001714439.png"  />
+</p>
 <p>3.然后点击该文件，上传文件就好啦</p>
-<p><img src="https://img2.imgtp.com/2024/03/18/f83ERE1F.png" alt="image-20240310002022174.png"></p>
+<p><img loading="lazy" src="https://img2.imgtp.com/2024/03/18/f83ERE1F.png" alt="image-20240310002022174.png"  />
+</p>
 <p>效果要这样的哦</p>
-<p><img src="https://img2.imgtp.com/2024/03/18/f6KC4Z3p.png" alt="image-20240310002051701.png"></p>
+<p><img loading="lazy" src="https://img2.imgtp.com/2024/03/18/f6KC4Z3p.png" alt="image-20240310002051701.png"  />
+</p>
 <p>4.怎么让图片显示呢？ 先复制图片的地址</p>
-<p><img src="https://img2.imgtp.com/2024/03/18/Dl6cnYww.png" alt="image-20240310004805338.png"></p>
+<p><img loading="lazy" src="https://img2.imgtp.com/2024/03/18/Dl6cnYww.png" alt="image-20240310004805338.png"  />
+</p>
 <p>5.编写代码</p>
-<p><img src="https://img2.imgtp.com/2024/03/18/WWmSGsxs.png" alt="image-20240310004958765.png"></p>
+<p><img loading="lazy" src="https://img2.imgtp.com/2024/03/18/WWmSGsxs.png" alt="image-20240310004958765.png"  />
+</p>
 <pre tabindex="0"><code>![](复制的路径)  //显示图片的语法
-</code></pre><p><img src="https://img2.imgtp.com/2024/03/18/6Zpo2ZTp.png" alt="image-20240310005311393.png"></p>
-<h4 id="那会创建了那就要使用看看使用的情况">那会创建了，那就要使用，看看使用的情况</h4>
+</code></pre><p><img loading="lazy" src="https://img2.imgtp.com/2024/03/18/6Zpo2ZTp.png" alt="image-20240310005311393.png"  />
+</p>
+<h4 id="那会创建了那就要使用看看使用的情况">那会创建了，那就要使用，看看使用的情况<a hidden class="anchor" aria-hidden="true" href="#那会创建了那就要使用看看使用的情况">#</a></h4>
 <p>就这样了</p>
-<p><img src="https://img2.imgtp.com/2024/03/18/giM24cPA.png" alt="image-20240310005351206.png"></p>
+<p><img loading="lazy" src="https://img2.imgtp.com/2024/03/18/giM24cPA.png" alt="image-20240310005351206.png"  />
+</p>
 <blockquote>
 <p>那怎么在外面去使用呢？例如：Markdown 一般上传一张图片到仓库之后，就已经可以当做图床使用</p>
 </blockquote>
@@ -131,41 +347,48 @@
 </span></span></code></pre></div><blockquote>
 <p><strong>github加载图片是很慢的，怎么去引入JsDeliver的加速地址？</strong></p>
 </blockquote>
-<h3 id="github引入jsdeliver的加速地址">github引入JsDeliver的加速地址</h3>
+<h3 id="github引入jsdeliver的加速地址">github引入JsDeliver的加速地址<a hidden class="anchor" aria-hidden="true" href="#github引入jsdeliver的加速地址">#</a></h3>
 <blockquote>
-<h3 id="jsdelivre7ae80e4bb8bjsdelivr简介"><a href="#jsdelivr%e7%ae%80%e4%bb%8b"></a><strong>jsDelivr简介</strong></h3>
+<h3 id="jsdelivre7ae80e4bb8bjsdelivr简介"><a href="#jsdelivr%e7%ae%80%e4%bb%8b"></a><strong>jsDelivr简介</strong><a hidden class="anchor" aria-hidden="true" href="#jsdelivre7ae80e4bb8bjsdelivr简介">#</a></h3>
 <p>是一个免费、快速和可信赖的CDN加速服务，声称它每个月可以支撑680亿次的请求。服务在Github上是开源的，<strong><a href="https://link.zhihu.com/?target=https%3A//github.com/jsdelivr/jsdelivr">jsDelivr地址</a></strong> 。目前，它提供了针对npm、Github和WordPress的加速服务，只需要一行代码就可以获得加速效果。只要我们的项目中用到了第三方的静态资源，譬如JavaScript脚本，css样式表，图片，图标，Flash等静态资源文件都应该考虑接入到CDN中</p>
 </blockquote>
 <p><strong>开始操作：</strong> 首先在图床仓库中点击release发布版本</p>
-<p><img src="https://pic4.zhimg.com/v2-4350b19a0496049bc7cd35cbaadabb87_r.jpg" alt="https://pic4.zhimg.com/v2-4350b19a0496049bc7cd35cbaadabb87_r.jpg"></p>
+<p><img loading="lazy" src="https://pic4.zhimg.com/v2-4350b19a0496049bc7cd35cbaadabb87_r.jpg" alt="https://pic4.zhimg.com/v2-4350b19a0496049bc7cd35cbaadabb87_r.jpg"  />
+</p>
 <p>自定义发布版（记得版本填写时要enter）</p>
-<p><img src="https://pic4.zhimg.com/80/v2-55c57ab90caffa7339eb62c5944601a7_1440w.webp" alt="img"></p>
+<p><img loading="lazy" src="https://pic4.zhimg.com/80/v2-55c57ab90caffa7339eb62c5944601a7_1440w.webp" alt="img"  />
+</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>这是github图上的原始路径
 </span></span><span style="display:flex;"><span>![](https://github.com/KlayPeter/mmx_img/raw/main/iu%E5%A3%81%E7%BA%B8.webp)
 </span></span><span style="display:flex;"><span>加速之后！！！----- https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">##注意不要把`raw/main/`加进去哦
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>![](https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp)
-</span></span></code></pre></div><p><img src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp"></p>
+</span></span></code></pre></div><p><img loading="lazy" src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@v1.0.0/iu%E5%A3%81%E7%BA%B8.webp"  />
+</p>
 <p>上面我女神哈哈哈哈哈！！</p>
 <blockquote>
 <p>知道怎么去手动创建了，但是好累，费时间，那么有什么工具提供给我们学习呢?</p>
 </blockquote>
-<h3 id="采用工具来帮我们做事">采用工具来帮我们做事</h3>
+<h3 id="采用工具来帮我们做事">采用工具来帮我们做事<a hidden class="anchor" aria-hidden="true" href="#采用工具来帮我们做事">#</a></h3>
 <ul>
 <li><strong>PicGo</strong>：一个用于快速上传图片并获取图片链接的跨平台工具</li>
 <li><strong>uPic</strong>：功能和上面一样，纯 macOS 系统支持，所以在 mac 下面交互体验比上面流畅不少，还有对应移动端 APP</li>
 </ul>
 <p>上面两款工具使用方式都是一样的，针对<code>Github</code>做图床都需要获取<code>token</code>供第三方图床工具使用。</p>
-<h2 id="现在就让我们来学习学习使用picgo来实现上传github图床吧">现在就让我们来学习学习使用PicGo来实现上传github图床吧！</h2>
+<h2 id="现在就让我们来学习学习使用picgo来实现上传github图床吧">现在就让我们来学习学习使用PicGo来实现上传github图床吧！<a hidden class="anchor" aria-hidden="true" href="#现在就让我们来学习学习使用picgo来实现上传github图床吧">#</a></h2>
 <p>首先先下载PicGo 到官网下载即可https://picgo.github.io/PicGo-Doc/zh/guide/#picgo-is-here</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#run</span>
 </span></span><span style="display:flex;"><span>./PicGo-2.4.0-beta.6.AppImage
-</span></span></code></pre></div><p>然后打开PicGo在PicGo里面进行配置( 每一项都要配置清楚 ) <img src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231350749.png" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231350749.png"></p>
-<p><img src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351157.png" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351157.png"></p>
-<p><img src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351684.png" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351684.png"></p>
-<p>其中的token是十分重要的，我来带大家生成一下这个token 1.setting—» Developer setting —» Personal access tokens —-» token( classic ) ——» Generate new token —&gt; (the second) New personal access token(classic) <img src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351297.png" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351297.png"></p>
+</span></span></code></pre></div><p>然后打开PicGo在PicGo里面进行配置( 每一项都要配置清楚 ) <img loading="lazy" src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231350749.png" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231350749.png"  />
+</p>
+<p><img loading="lazy" src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351157.png" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351157.png"  />
+</p>
+<p><img loading="lazy" src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351684.png" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351684.png"  />
+</p>
+<p>其中的token是十分重要的，我来带大家生成一下这个token 1.setting—» Developer setting —» Personal access tokens —-» token( classic ) ——» Generate new token —&gt; (the second) New personal access token(classic) <img loading="lazy" src="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351297.png" alt="https://fastly.jsdelivr.net/gh/KlayPeter/mmx_img@main/202403231351297.png"  />
+</p>
 <p>将这些东西配置好之后，就可以正常上传图床啦！（留意token，库名等等的正确性）</p>
 <p>最后再把加速链接jsdelivr设置一下, 就大功告成啦！</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>https://fastly.jsdelivr.net/gh/<span style="color:#f92672">[</span>Username<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>Ku<span style="color:#f92672">]</span>@main
@@ -174,79 +397,153 @@
 <p><a href="https://zhuanlan.zhihu.com/p/346643522">https://zhuanlan.zhihu.com/p/346643522</a></p>
 <p>/posts/first-blog/ &ldquo;First Blog&rdquo;)</p>
 
-        </div>
 
-        
-        
-        <div class="article-toc" >
-            <h3>Contents</h3>
-            <nav id="TableOfContents">
-  <ul>
-    <li><a href="#图床是什么">图床是什么？</a></li>
-    <li><a href="#为什么要用图床">为什么要用图床？</a>
-      <ul>
-        <li><a href="#既然想去学习去使用那就开始实现吧">既然想去学习，去使用。那就开始实现吧！</a></li>
-        <li><a href="#github引入jsdeliver的加速地址">github引入JsDeliver的加速地址</a></li>
-        <li><a href="#jsdelivre7ae80e4bb8bjsdelivr简介"><a href="#jsdelivr%e7%ae%80%e4%bb%8b"></a><strong>jsDelivr简介</strong></a></li>
-        <li><a href="#采用工具来帮我们做事">采用工具来帮我们做事</a></li>
-      </ul>
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 基于Github &#43; JsDelivr搭建属于自己的博客 on x"
+            href="https://x.com/intent/tweet/?text=%e5%9f%ba%e4%ba%8eGithub%20%2b%20JsDelivr%e6%90%ad%e5%bb%ba%e5%b1%9e%e4%ba%8e%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2&amp;url=https%3a%2f%2fklaypeter.github.io%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584%25E5%259B%25BE%25E5%25BA%258A%2f&amp;hashtags=">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
     </li>
-    <li><a href="#现在就让我们来学习学习使用picgo来实现上传github图床吧">现在就让我们来学习学习使用PicGo来实现上传github图床吧！</a></li>
-  </ul>
-</nav>
-        </div>
-        
-        
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 基于Github &#43; JsDelivr搭建属于自己的博客 on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fklaypeter.github.io%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584%25E5%259B%25BE%25E5%25BA%258A%2f&amp;title=%e5%9f%ba%e4%ba%8eGithub%20%2b%20JsDelivr%e6%90%ad%e5%bb%ba%e5%b1%9e%e4%ba%8e%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2&amp;summary=%e5%9f%ba%e4%ba%8eGithub%20%2b%20JsDelivr%e6%90%ad%e5%bb%ba%e5%b1%9e%e4%ba%8e%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2&amp;source=https%3a%2f%2fklaypeter.github.io%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584%25E5%259B%25BE%25E5%25BA%258A%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 基于Github &#43; JsDelivr搭建属于自己的博客 on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fklaypeter.github.io%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584%25E5%259B%25BE%25E5%25BA%258A%2f&title=%e5%9f%ba%e4%ba%8eGithub%20%2b%20JsDelivr%e6%90%ad%e5%bb%ba%e5%b1%9e%e4%ba%8e%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 基于Github &#43; JsDelivr搭建属于自己的博客 on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fklaypeter.github.io%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584%25E5%259B%25BE%25E5%25BA%258A%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 基于Github &#43; JsDelivr搭建属于自己的博客 on whatsapp"
+            href="https://api.whatsapp.com/send?text=%e5%9f%ba%e4%ba%8eGithub%20%2b%20JsDelivr%e6%90%ad%e5%bb%ba%e5%b1%9e%e4%ba%8e%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2%20-%20https%3a%2f%2fklaypeter.github.io%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584%25E5%259B%25BE%25E5%25BA%258A%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 基于Github &#43; JsDelivr搭建属于自己的博客 on telegram"
+            href="https://telegram.me/share/url?text=%e5%9f%ba%e4%ba%8eGithub%20%2b%20JsDelivr%e6%90%ad%e5%bb%ba%e5%b1%9e%e4%ba%8e%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2&amp;url=https%3a%2f%2fklaypeter.github.io%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584%25E5%259B%25BE%25E5%25BA%258A%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share 基于Github &#43; JsDelivr搭建属于自己的博客 on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=%e5%9f%ba%e4%ba%8eGithub%20%2b%20JsDelivr%e6%90%ad%e5%bb%ba%e5%b1%9e%e4%ba%8e%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2&u=https%3a%2f%2fklaypeter.github.io%2fpost%2f%25E6%2590%25AD%25E5%25BB%25BA%25E8%2587%25AA%25E5%25B7%25B1%25E7%259A%2584%25E5%259B%25BE%25E5%25BA%258A%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
 
-        
-
-
-        
-    </div>
-    
-<nav id="article-nav">
-    
-    <a href="/post/markdown-icon/" id="article-nav-newer" class="article-nav-link-wrap">
-        <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            一些可以美化 Markdown 的表情符号
-        </div>
-    </a>
-    
-    
-</nav>
-
-
+  </footer>
 </article>
-
-        
-    </section>
-    <footer id="footer">
-    <div class="outer">
-        <div id="footer-info" class="inner">
-            &copy; 2024 Min&#39;s Blog
-            <br />
-            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/carsonip/hugo-theme-minos" target="_blank">Minos</a>
-        </div>
-    </div>
+    </main>
     
+<footer class="footer">
+        <span>&copy; 2024 <a href="https://klaypeter.github.io/">Min&#39;s Blog</a></span> · 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-    
-    <script>
-        document.getElementById('main-nav-toggle').addEventListener('click', function () {
-            var header = document.getElementById('header');
-            if (header.classList.contains('mobile-on')) {
-                header.classList.remove('mobile-on');
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
             } else {
-                header.classList.add('mobile-on');
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
             }
         });
-    </script>
-</footer>
+    });
 
-</div>
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
 </body>
+
 </html>

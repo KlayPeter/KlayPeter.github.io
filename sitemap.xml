@@ -3,25 +3,51 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://klaypeter.github.io/</loc>
-    <lastmod>2024-10-21T23:17:49+08:00</lastmod>
+    <lastmod>2024-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://klaypeter.github.io/post/</loc>
+    <lastmod>2024-11-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://klaypeter.github.io/post/%E7%BB%86%E8%AF%B4%E7%BF%BB%E5%A2%99/</loc>
+    <lastmod>2024-11-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://klaypeter.github.io/post/%E6%94%BB%E7%95%A5axios/</loc>
+    <lastmod>2024-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://klaypeter.github.io/post/%E6%94%BB%E7%95%A5node.js/</loc>
+    <lastmod>2024-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://klaypeter.github.io/tags/hugo/</loc>
+    <lastmod>2024-10-21T23:17:49+08:00</lastmod>
+  </url><url>
+    <loc>https://klaypeter.github.io/tags/</loc>
     <lastmod>2024-10-21T23:17:49+08:00</lastmod>
   </url><url>
     <loc>https://klaypeter.github.io/post/test/</loc>
     <lastmod>2024-10-21T23:17:49+08:00</lastmod>
   </url><url>
+    <loc>https://klaypeter.github.io/tags/%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2024-10-21T23:17:49+08:00</lastmod>
+  </url><url>
+    <loc>https://klaypeter.github.io/categories/111/</loc>
+    <lastmod>2024-10-21T23:17:44+08:00</lastmod>
+  </url><url>
+    <loc>https://klaypeter.github.io/categories/</loc>
+    <lastmod>2024-10-21T23:17:44+08:00</lastmod>
+  </url><url>
     <loc>https://klaypeter.github.io/post/myfirst/</loc>
+    <lastmod>2024-10-21T23:17:44+08:00</lastmod>
+  </url><url>
+    <loc>https://klaypeter.github.io/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2024-10-21T23:17:44+08:00</lastmod>
   </url><url>
     <loc>https://klaypeter.github.io/post/markdown-icon/</loc>
     <lastmod>2024-10-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://klaypeter.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/</loc>
+    <loc>https://klaypeter.github.io/post/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE/</loc>
     <lastmod>2024-10-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://klaypeter.github.io/categories/</loc>
-  </url><url>
-    <loc>https://klaypeter.github.io/tags/</loc>
+    <loc>https://klaypeter.github.io/post/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/</loc>
+    <lastmod>2024-10-12T00:00:00+00:00</lastmod>
   </url>
 </urlset>

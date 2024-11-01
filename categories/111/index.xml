@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>111 on Min&#39;s Blog</title>
+    <link>https://klaypeter.github.io/categories/111/</link>
+    <description>Recent content in 111 on Min&#39;s Blog</description>
+    <generator>Hugo -- 0.123.8</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 21 Oct 2024 23:17:44 +0800</lastBuildDate>
+    <atom:link href="https://klaypeter.github.io/categories/111/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Myfirst</title>
+      <link>https://klaypeter.github.io/post/myfirst/</link>
+      <pubDate>Mon, 21 Oct 2024 23:17:44 +0800</pubDate>
+      <guid>https://klaypeter.github.io/post/myfirst/</guid>
+      <description>123</description>
+    </item>
+  </channel>
+</rss>
