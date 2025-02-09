@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>细说翻墙 | 密码箱</title><meta name="author" content="密码箱"><meta name="copyright" content="密码箱"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="翻墙 👣 翻墙翻墙，各个都说会说翻墙，都会翻墙，但是呢你是不是其实并不太懂翻墙的具体含义吧，那就让我们了解一下并学会使用吧🐾 文中含引用的文章：[第一篇:超详细的科普教程 | 小帅同学的博客 (xs2021.github.io)](https:&#x2F;&#x2F;xs2021.github.io&#x2F;2021&#x2F;05&#x2F;06&#x2F;1. 翻牆科普&#x2F;#!) 这位大佬的博客主题，以及防爬机制等做得很好，全瞻仰大佬 国内禁止的敏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="细说翻墙">
+<meta property="og:url" content="http://example.com/2025/02/09/%E7%BB%86%E8%AF%B4%E7%BF%BB%E5%A2%99/">
+<meta property="og:site_name" content="密码箱">
+<meta property="og:description" content="翻墙 👣 翻墙翻墙，各个都说会说翻墙，都会翻墙，但是呢你是不是其实并不太懂翻墙的具体含义吧，那就让我们了解一下并学会使用吧🐾 文中含引用的文章：[第一篇:超详细的科普教程 | 小帅同学的博客 (xs2021.github.io)](https:&#x2F;&#x2F;xs2021.github.io&#x2F;2021&#x2F;05&#x2F;06&#x2F;1. 翻牆科普&#x2F;#!) 这位大佬的博客主题，以及防爬机制等做得很好，全瞻仰大佬 国内禁止的敏">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E8%B5%96%E7%BE%8A%E7%BE%8A.png">
+<meta property="article:published_time" content="2025-02-09T07:58:10.000Z">
+<meta property="article:modified_time" content="2025-02-09T08:02:26.486Z">
+<meta property="article:author" content="密码箱">
+<meta property="article:tag" content="小玩意儿">
+<meta property="article:tag" content="分享">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E8%B5%96%E7%BE%8A%E7%BE%8A.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "细说翻墙",
+  "url": "http://example.com/2025/02/09/%E7%BB%86%E8%AF%B4%E7%BF%BB%E5%A2%99/",
+  "image": "https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E8%B5%96%E7%BE%8A%E7%BE%8A.png",
+  "datePublished": "2025-02-09T07:58:10.000Z",
+  "dateModified": "2025-02-09T08:02:26.486Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "密码箱",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="../../../../img/iu-logo.webp"><link rel="canonical" href="http://example.com/2025/02/09/%E7%BB%86%E8%AF%B4%E7%BF%BB%E5%A2%99/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="../../../../css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"https://cdn.jsdelivr.net/npm/local-search@latest/dist/","preload":false,"top_n_per_article":3,"unescape":true,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 密码箱","link":"链接: ","source":"来源: 密码箱","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '细说翻墙',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div id="web_bg" style="background-image: url(/img/iu-2.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="../img/iu-logo.webp" onerror="this.onerror=null;this.src='../img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="../archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="../tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="../categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="../categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="../tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="../archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="../gallery/"><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="../link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E8%B5%96%E7%BE%8A%E7%BE%8A.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="../../../../index.html"><img class="site-icon" src="https://img1.baidu.com/it/u=1247351064,2143309824&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=500&amp;h=500" alt="Logo"><span class="site-name">密码箱</span></a><a class="nav-page-title" href="../../../../index.html"><span class="site-name">细说翻墙</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="../categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="../tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="../archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="../gallery/"><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="../link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">细说翻墙</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-02-09T07:58:10.000Z" title="发表于 2025-02-09 15:58:10">2025-02-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-09T08:02:26.486Z" title="更新于 2025-02-09 16:02:26">2025-02-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="../../../../categories/%E6%96%87%E7%AB%A0/">文章</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>翻墙 <span class="github-emoji"><span>👣</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f463.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+<p>翻墙翻墙，各个都说会说翻墙，都会翻墙，但是呢你是不是其实并不太懂翻墙的具体含义吧，那就让我们了解一下并学会使用吧<span class="github-emoji"><span>🐾</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f43e.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+<p>文中含引用的文章：[第一篇:超详细的科普教程 | 小帅同学的博客 (xs2021.github.io)](<a target="_blank" rel="noopener" href="https://xs2021.github.io/2021/05/06/1">https://xs2021.github.io/2021/05/06/1</a>. 翻牆科普/#!)</p>
+<p>这位大佬的博客主题，以及防爬机制等做得很好，全瞻仰大佬</p>
+<p>国内禁止的敏感词</p>
+<blockquote>
+<p>敏感词：vpn、翻墙、梯子、科学上网</p>
+<p>代替词：越狱、富强、代理、魔法上网、fq</p>
+</blockquote>
+<h2 id="科普一下"><a href="#科普一下" class="headerlink" title="科普一下"></a>科普一下</h2><h3 id="1-什么是长城防火墙"><a href="#1-什么是长城防火墙" class="headerlink" title="1.什么是长城防火墙?"></a>1.什么是长城防火墙?</h3><p>长城防火墙的英文全称叫:The Great Firewall，也就是我们俗称的”墙”。长城防火墙的存在是为了规范和监管中国互联网，它通过相关硬件和软件防火墙组成的一道过滤网，用于保护中国大陆的网络环境。它监管着所有的跨境互联网流量，并阻止中国大陆网民访问一些外部Web服务。这就是所谓的“长城防火墙”。</p>
+<h3 id="2-关于科学上网"><a href="#2-关于科学上网" class="headerlink" title="2.关于科学上网"></a>2.关于科学上网</h3><p>科学上网(也叫<code>翻牆</code> )，所谓的“科学上网”，也就是通过一些技术手段来绕过中国长城防火墙的监管和限制，去访问一些国外的网站和服务。而想要绕过中国长城防火墙的监管和限制，就必须要使用“科学上网工具”。<br>翻牆有多重要，我想无需过多解释「Gmail的邮件、Youtube的视频、Google某段程序的bug、国外的公开课视频、Netflix上的新剧.…<br>我想先提醒读者:<strong>没有完美的翻牆软件，不要这样期望</strong>。</p>
+<h3 id="3-翻牆原理和方式。"><a href="#3-翻牆原理和方式。" class="headerlink" title="3.翻牆原理和方式。"></a>3.翻牆原理和方式。</h3><p>**科学上网的原理:**通过 vpn、ss、ssr、v2ray、代理等对上网流量、数据加密，以此躲避GFw (长城防火墙)检测，实现自由上网，也被用于数据传输安全、网络匿名、隐私保护亲<br>**适用:**Windows、Linux、Mac、Android、l0s、路由器、TV 等全平台</p>
+<p>下面用张图看一下整个流程</p>
+<p><img src="C:\Users\86130\AppData\Roaming\Typora\typora-user-images\image-20240406235505105.png" alt="image-20240406235505105"></p>
+<blockquote>
+<p>通俗点来说:「国内网络有一个GFW监管，国内的网络无法直达国外的网站，然后找个中介(国外代理服务器)，可以绕过GFW监管，让我们的网络由国内转到国外，这时即可访问国外网站。」</p>
+<p><strong>此时可能会有这样的疑问:网络转到国外后还能正常访问国内网站吗?</strong><br>不用担心，目前的代理软件都有这样的功能:</p>
+<ul>
+<li>直连模式:不用代理线路，直接访问，相当于没翻牆</li>
+<li><strong>全局模式</strong>:不管什么网站都用代理线路访问</li>
+<li><strong>PAC模式</strong>:自动判断网站是国内还是国外，如果是国外则智能选择代理线路</li>
+<li>自定义规则:国内网站走什么线路、国外网站走什么线路</li>
+</ul>
+</blockquote>
+<p><strong>目前翻牆方式介绍</strong><br>1、<code>vpn</code><br>vpn 的流量特征过于明显容易被 GFW 防火墙识别，且价格昂贵，现在已不提倡使用。<br>2、<code>SS、SSR、V2ray 机场</code><br>SS、SSR、V2ray 是什么?<br>三个都是目前科学上网比较主流的加密协议,通过加密混淆伪装成正常流量，让 GFW 防火墙识别更困难。<br>3、 <code>搭建自己的科学上网服务器</code><br>需要一定动手能力，只要你有网络，几分钟便能搭建一台可以科学上网的代理服务器，科学上网的终极姿势。<br>上面的<code> ss、sSR、v2ray 机场</code> 实际上就是替你完成了搭建这一步，直接向你提供搭建好的节点供你使用。</p>
+<p>此方案理论永久可行，尤其是在出现特殊情况，比如:封锁严重，大面积科学上网失效的时候作为应急方案。IP 被封更换 IP 即可，适合喜欢折腾的同学。小白建议还是用机场，省事省心。</p>
+<p>4、<code>代理(Proxy)类</code><br>比如蓝灯(基于SOCKS5加密协议),在代理类的“科学上网”工具中，最具代表性的就是:蓝灯。在中国互联网审查还没有非常严峻的前些年，蓝灯是大部分人翻牆的首选，它也是最受欢迎的翻牆工具。但随着近几年互联网审查越来越严，蓝灯也慢慢失去了它“翻牆首选”的称号，经常掉线。尤其是在每年比较敏感的几个时间段，都会出现无法翻或者频繁掉线的情况。</p>
+<h3 id="4-机场是什么"><a href="#4-机场是什么" class="headerlink" title="4.机场是什么?"></a>4.机场是什么?</h3><p><strong>专为翻墙而生的机场梯子</strong></p>
+<p>VPN并非专为翻墙而生，而机场是。</p>
+<p>通常由第三方大厂承担搭建，直接向用户提供 ss、ssr、v2ray 节点服务,<br>免去个人搭建流程，更快捷，线路优化也更好。<br><strong>机场是老司机和小白皆可的一种方案，省事省心，稳定性和速度兼顾。</strong></p>
+<p><img src="https://gfwoff.com/wp-content/uploads/2022/08/%E6%9C%BA%E5%9C%BA%E5%92%8Cvpn%E7%9A%84%E5%8C%BA%E5%88%AB.png" alt="机场和vpn的区别"></p>
+<p>机场针对中国网络有专门的优化线路，海外翻墙VPN都没有优化线路所以你在国内用起来感觉很慢，而机场采用境内服务器中转流量数据，数据经过全程加密，达到既安全又快速的翻墙体验。</p>
+<p>目前为止，很多在国内流行的VPN客户端，其实也是内置的机场节点，使用机场常用的 SS/SSR/V2ray/Trojan 翻墙协议，只是套了一个壳，叫做VPN也只是为了方便更多人记住它。</p>
+<h3 id="5-翻牆后能做什么"><a href="#5-翻牆后能做什么" class="headerlink" title="5.翻牆后能做什么?"></a>5.翻牆后能做什么?</h3><p>嘿嘿嘿<span class="github-emoji"><span>⚠</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+<h3 id="6-国内使用vpn的常见问题"><a href="#6-国内使用vpn的常见问题" class="headerlink" title="6.国内使用vpn的常见问题 ?"></a>6.国内使用vpn的常见问题 ?</h3><h4 id="6-1、国内为什么封杀vpn"><a href="#6-1、国内为什么封杀vpn" class="headerlink" title="6.1、国内为什么封杀vpn?"></a>6.1、国内为什么封杀vpn?</h4><p>众所周知，中国大陆的防火墙(GFW)屏蔽了大量的海外网站，于是带来了“翻牆”的需要大量网民使用vpn来绕过GFW的封锁、访问墙外网站。为了阻止国内网民使用vpn翻牆，中国自然会封杀vpn。</p>
+<h4 id="6-2、个人使用vpn违法吗"><a href="#6-2、个人使用vpn违法吗" class="headerlink" title="6.2、个人使用vpn违法吗?"></a>6.2、个人使用vpn违法吗?</h4><p>翻牆 ≠ 违法<br>近年来中国出现了几起因为翻牆被抓的事件，现在可以明确的是:在中国私自出售vpn服务是违法的，但至于个人使用vpn违法与否，现在并没有明确的答案。事实上，中国每天都有不计其数的人因为个人或工作需要来使用vpn翻牆，这其中不仅包括翻牆看新闻、翻牆看油管，也包括外贸往来，留学生和学校联系等等。如果这些个人使用vpn都算违法而被法律制裁，那么估计这么多违法的人也是处理不过来的。总之，对于“个人使用vpn违法吗?”这样的问题，大家目前不需要过于担心，但使用vpn应尽量保持低调。</p>
+<h4 id="6-3、用vpn会被发现吗"><a href="#6-3、用vpn会被发现吗" class="headerlink" title="6.3、用vpn会被发现吗?"></a>6.3、用vpn会被发现吗?</h4><p>网络运营商是可以随时监控网民的互联网使用情况的。理论上说，使用vpn是可以被运营商发现的(虽然通过vpn访问了哪些网站未必能被发现)。目前有些vpn加入了伪装、混淆功能来避免vpn流量被发现，但GFW也在不断升级，所以不要以为用vpn就不会被发现。</p>
+<h4 id="6-4、是否会被喝茶"><a href="#6-4、是否会被喝茶" class="headerlink" title="6.4、是否会被喝茶"></a>6.4、是否会被喝茶</h4><p><strong>1 传播翻牆方法</strong><br>不要自行将翻牆方法公布于国内等社交平台，2019年4月有人因为分享 自己的VPS搭建方式而遭到拘役两天。</p>
+<p><strong>2 vpn盈利</strong><br>如果提供翻牆软件，并以此为盈利。根据工信部规定:“未经电信主管部门批准，不得自行建立或租用专线(含虚拟专用网络vpn)等其他信道开展跨境经营活动”。所以未经过有关部门允许，在中国大陆卖vpn是违法的。过去在2019年1月刘某因提供翻牆服务被判有期徒刑三年、并处以五十万元罚金，且没收所有非法所得，罪行可说是相当严重，也请网友千万不要以身试法。</p>
+<p><strong>3 危害国家安全</strong><br>如果有朋友掌握了翻牆方法后在Twitter转播一些中国政府禁止的言论或者图片，也可能面临请喝茶的风险。这种威胁国家安全的情况可能就比普通的违法行为更加复杂一些，也请各位网友注意。</p>
+<blockquote>
+<p>在中国有上千万的网友和你一样使用着VPN浏览海外网站，使用 Telegram、Clubhouse 和 Instagram 等国外流行的软件，订阅 Netflix、HBO、Disney+ 等流媒体服务，这种突破<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E">互联网防火长城</a>的行为俗称为「翻墙」。可以说，没有翻墙软件，很多工作都无法正常进行，互联网工作者可以很容易的自己搭建VPN进行翻墙，其他网民可能更多的是选择购买配套成熟的翻墙服务。</p>
+</blockquote>
+<h1 id="那要怎么翻墙呢？"><a href="#那要怎么翻墙呢？" class="headerlink" title="那要怎么翻墙呢？"></a>那要怎么翻墙呢？</h1><p>首先你得翻墙才能翻墙</p>
+<p>算了，不乱说了哈哈哈<span class="github-emoji"><span>💩</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a9.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+<ol>
+<li><p>先安装<strong>翻墙软件</strong>，个人推荐是<strong>Clash</strong>(windows、linux都有的)</p>
+<p>上连接：这些看看能不能安装，之前很简单的</p>
+<p><a target="_blank" rel="noopener" href="https://docs.gtk.pw/contents/quickstart.html#url-%E5%AF%BC%E5%85%A5">CFW 快速上手 | Clash for Windows 代理工具使用说明</a></p>
+<p><img src="https://img.picui.cn/free/2024/11/01/6724a0d28dbb0.png"></p>
+<p>或者其他：<strong>Hiddify</strong>等</p>
+</li>
+<li><p>找一个稳定可靠的<strong>梯子网站</strong>：要花点小钱的</p>
+<p>网上一大把，看你自己</p>
+<p>我现在在用：<a target="_blank" rel="noopener" href="http://www.efc1.net/dashboard">EFCloud</a></p>
+<p>买了个100G无限用的，其实也用不了多少的，月租贵</p>
+</li>
+<li><p><strong>代理配置</strong></p>
+<p>看文档：<a target="_blank" rel="noopener" href="https://docs.gtk.pw/contents/windows/clash.html#%E6%B7%BB%E5%8A%A0-clash-%E9%85%8D%E7%BD%AE%E8%AE%A2%E9%98%85">在 Windows 上使用 Clash For Windows | Clash for Windows 代理工具使用说明</a></p>
+<p>或者梯子网站自带的一键订阅功能</p>
+</li>
+</ol>
+<p>现在可以去尝试尝试啦<span class="github-emoji"><span>✌</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">密码箱</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/02/09/%E7%BB%86%E8%AF%B4%E7%BF%BB%E5%A2%99/">http://example.com/2025/02/09/%E7%BB%86%E8%AF%B4%E7%BF%BB%E5%A2%99/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">密码箱</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="../../../../tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a><a class="post-meta__tags" href="../../../../tags/%E5%88%86%E4%BA%AB/">分享</a></div><div class="post-share"><div class="social-share" data-image="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E8%B5%96%E7%BE%8A%E7%BE%8A.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="../markdown-icon/" title="一些可以美化 Markdown 的表情符号"><img class="cover" src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E6%BC%AB%E7%94%BB1.png" onerror="onerror=null;src='../../../../img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">一些可以美化 Markdown 的表情符号</div></div><div class="info-2"><div class="info-item-1">参考 Complete list of github markdown emoji markup 常用的：  🐾 :feet: 💭 :thought_balloon: 👊 :punch: 💩 :shit: 😊 :blush:  ❤️ :heart: ✌️ :v:  💧 :droplet: ☀️ :sunny: 🌐 :globe_with_meridians: 🌗 :last_quarter_moon: 🌍 :earth_africa: ⛅️ :partly_sunny: 💻 :computer: 📁 :file_folder: ✒️ :black_nib: 📝 :pencil: ⚠️ :warning:  🔴 :red_circle: ⭕️ :o: ✔️ :heavy_check_mark: 🚦 :vertical_traffic_light: </div></div></div></a><a class="pagination-related" href="../%E7%BB%86%E8%AF%B4%E5%9B%BE%E5%BA%8A&amp;&amp;%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" title="细说图床&amp;&amp;搭建自己的图床"><img class="cover" src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E5%98%BF%E7%8C%AB.png" onerror="onerror=null;src='../../../../img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">细说图床&&搭建自己的图床</div></div><div class="info-2"><div class="info-item-1">图床是什么？图床其实是互联网中存储图片的空间，举个栗子： 假设你在微博分享一张图片，你的粉丝可以通过互联网看到你分享的图片，那么他是去访问你的手机的相册吗？其实不是的，你分享图片，也就是把图片上传到微博的服务器，微博将为你生成一个独一无二的访问链接，这个链接指向的空间其实就是图床。 为什么要用图床？因为像我一样热爱在网上分享博客的人，需要使用图床来进行表达。使用图床的人通常采用Markdown的方式去编辑文字。 有什么直接去使用的图床? PicGo - 免费图床，贴出分享，图显不凡 这个应该很稳定 Hello图床 - 免费图片上传-图片外链-免费公共图床 其他自己去找找  自己搭建一个属于自己博客使用Github + JsDelivr Github更稳定,配置起来也还是很方便 一 首先新建一个公开仓库： 生成token令牌 其中的token是十分重要的，我来带大家生成一下这个token  1.在自己的头像选择setting—» Developer setting —» Personal access tokens —-» token( classic ) ——»...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="../markdown-icon/" title="一些可以美化 Markdown 的表情符号"><img class="cover" src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E6%BC%AB%E7%94%BB1.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-09</div><div class="info-item-2">一些可以美化 Markdown 的表情符号</div></div><div class="info-2"><div class="info-item-1">参考 Complete list of github markdown emoji markup 常用的：  🐾 :feet: 💭 :thought_balloon: 👊 :punch: 💩 :shit: 😊 :blush:  ❤️ :heart: ✌️ :v:  💧 :droplet: ☀️ :sunny: 🌐 :globe_with_meridians: 🌗 :last_quarter_moon: 🌍 :earth_africa: ⛅️ :partly_sunny: 💻 :computer: 📁 :file_folder: ✒️ :black_nib: 📝 :pencil: ⚠️ :warning:  🔴 :red_circle: ⭕️ :o: ✔️ :heavy_check_mark: 🚦 :vertical_traffic_light: </div></div></div></a><a class="pagination-related" href="../%E4%BD%BF%E7%94%A8VuePress%E6%90%AD%E5%BB%BA%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/" title="VuePress + Github Pages 搭建个人博客"><img class="cover" src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/iu-5.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-09</div><div class="info-item-2">VuePress + Github Pages 搭建个人博客</div></div><div class="info-2"><div class="info-item-1">先贴一下成果链接，这个是我的学习博客  https://klaypeter.github.io/learning-share/ 0. VuePress快速开始同 VuePress 官网： 1. 本地搭建 创建并进入一个新目录  // 文件名自定义 mkdir vuepress-starter &amp;&amp; cd vuepress-starter   使用你喜欢的包管理器进行初始化  yarn init # npm init   将 VuePress 安装为本地依赖  yarn add -D vuepress # npm install -D vuepress   创建你的第一篇文档，VuePress 会以 docs 为文档根目录，所以这个 README.md 相当于主页：  mkdir docs &amp;&amp; echo '# Hello VuePress' &gt; docs/README.md   在 package.json 中添加一些 scripts  {   "scripts": {     "docs:dev": "vuepress dev...</div></div></div></a><a class="pagination-related" href="../%E7%BB%86%E8%AF%B4%E5%9B%BE%E5%BA%8A&&%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" title="细说图床&amp;&amp;搭建自己的图床"><img class="cover" src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E5%98%BF%E7%8C%AB.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-09</div><div class="info-item-2">细说图床&amp;&amp;搭建自己的图床</div></div><div class="info-2"><div class="info-item-1">图床是什么？图床其实是互联网中存储图片的空间，举个栗子： 假设你在微博分享一张图片，你的粉丝可以通过互联网看到你分享的图片，那么他是去访问你的手机的相册吗？其实不是的，你分享图片，也就是把图片上传到微博的服务器，微博将为你生成一个独一无二的访问链接，这个链接指向的空间其实就是图床。 为什么要用图床？因为像我一样热爱在网上分享博客的人，需要使用图床来进行表达。使用图床的人通常采用Markdown的方式去编辑文字。 有什么直接去使用的图床? PicGo - 免费图床，贴出分享，图显不凡 这个应该很稳定 Hello图床 - 免费图片上传-图片外链-免费公共图床 其他自己去找找  自己搭建一个属于自己博客使用Github + JsDelivr Github更稳定,配置起来也还是很方便 一 首先新建一个公开仓库： 生成token令牌 其中的token是十分重要的，我来带大家生成一下这个token  1.在自己的头像选择setting—» Developer setting —» Personal access tokens —-» token( classic ) ——»...</div></div></div></a><a class="pagination-related" href="../../02/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE/" title="前端学习建议"><img class="cover" src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/iu-4.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-02</div><div class="info-item-2">前端学习建议</div></div><div class="info-2"><div class="info-item-1">前端的一个小小的学习建议（基础篇）🐾 首先你们从大一就可以开始学习前端的相关知识，我觉得太棒了 ，因为我是一路摸索滚打才慢慢找到路子的，并且基本比你们晚一年的时间投入学习的，所以对你们抱有很大的期待，我其实水平也不算特别高，但也有一些自己的学习想法和思考，希望能给大家带来点帮助！👊 📝 基础建议的是在mdn官网跟着学习一系列 html基本必学，启蒙之一，最不可以缺少的 css这是我个人感觉使用最难的部分了，感觉语法什么的还行，但是真正做项目的时候会发现，太难啦！！！！我css还需继续加强，我们共同努力👊 scss ts - js  一些css的基础用法得熟练，不然你会不快乐并且效率很低的  记住CSS的数据类型  读懂CSS的语法  多动手练习   JavaScript这个是特别重要的，是前端的逻辑，学习难度也是最大的 跟着教程来学，多运用、敲案例 📝 多看大佬博客文章或者书籍几位大佬的链接博客：  Flex 布局教程：语法篇 - 阮一峰的网络日志 张鑫旭-鑫空间-鑫生活 (zhangxinxu.com) chokcoco/iCSS: 不止于 CSS...</div></div></div></a><a class="pagination-related" href="../../02/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客"><img class="cover" src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E5%98%BF%E7%8C%AB.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-02</div><div class="info-item-2">我的第一篇博客</div></div><div class="info-2"><div class="info-item-1">就是我的第一篇博客，以后就会分享和记录更多自己的学习情况和心得体会在这里，见证走过的路，取得的成就！！！虽迟但到，我相信我会一直坚持下去的！！！😀 </div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="../img/iu-logo.webp" onerror="this.onerror=null;this.src='../img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">密码箱</div><div class="author-info-description">欢迎来到密码箱的个人博客，记录思考与成长</div><div class="site-data"><a href="../archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="../tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="../categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/KlayPeter/"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/KlayPeter" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="../mailto:kt_mmxyy2377@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%91%E6%99%AE%E4%B8%80%E4%B8%8B"><span class="toc-number">1.</span> <span class="toc-text">科普一下</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E9%95%BF%E5%9F%8E%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">1.1.</span> <span class="toc-text">1.什么是长城防火墙?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%85%B3%E4%BA%8E%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91"><span class="toc-number">1.2.</span> <span class="toc-text">2.关于科学上网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BF%BB%E7%89%86%E5%8E%9F%E7%90%86%E5%92%8C%E6%96%B9%E5%BC%8F%E3%80%82"><span class="toc-number">1.3.</span> <span class="toc-text">3.翻牆原理和方式。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%9C%BA%E5%9C%BA%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.4.</span> <span class="toc-text">4.机场是什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%BF%BB%E7%89%86%E5%90%8E%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88"><span class="toc-number">1.5.</span> <span class="toc-text">5.翻牆后能做什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%9B%BD%E5%86%85%E4%BD%BF%E7%94%A8vpn%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">1.6.</span> <span class="toc-text">6.国内使用vpn的常见问题 ?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1%E3%80%81%E5%9B%BD%E5%86%85%E4%B8%BA%E4%BB%80%E4%B9%88%E5%B0%81%E6%9D%80vpn"><span class="toc-number">1.6.1.</span> <span class="toc-text">6.1、国内为什么封杀vpn?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2%E3%80%81%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8vpn%E8%BF%9D%E6%B3%95%E5%90%97"><span class="toc-number">1.6.2.</span> <span class="toc-text">6.2、个人使用vpn违法吗?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3%E3%80%81%E7%94%A8vpn%E4%BC%9A%E8%A2%AB%E5%8F%91%E7%8E%B0%E5%90%97"><span class="toc-number">1.6.3.</span> <span class="toc-text">6.3、用vpn会被发现吗?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4%E3%80%81%E6%98%AF%E5%90%A6%E4%BC%9A%E8%A2%AB%E5%96%9D%E8%8C%B6"><span class="toc-number">1.6.4.</span> <span class="toc-text">6.4、是否会被喝茶</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%82%A3%E8%A6%81%E6%80%8E%E4%B9%88%E7%BF%BB%E5%A2%99%E5%91%A2%EF%BC%9F"><span class="toc-number"></span> <span class="toc-text">那要怎么翻墙呢？</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="../2025/02/09/markdown-icon/" title="一些可以美化 Markdown 的表情符号"><img src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E6%BC%AB%E7%94%BB1.png" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="一些可以美化 Markdown 的表情符号"/></a><div class="content"><a class="title" href="../2025/02/09/markdown-icon/" title="一些可以美化 Markdown 的表情符号">一些可以美化 Markdown 的表情符号</a><time datetime="2025-02-09T07:58:10.000Z" title="发表于 2025-02-09 15:58:10">2025-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2025/02/09/%E7%BB%86%E8%AF%B4%E7%BF%BB%E5%A2%99/" title="细说翻墙"><img src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E8%B5%96%E7%BE%8A%E7%BE%8A.png" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="细说翻墙"/></a><div class="content"><a class="title" href="../2025/02/09/%E7%BB%86%E8%AF%B4%E7%BF%BB%E5%A2%99/" title="细说翻墙">细说翻墙</a><time datetime="2025-02-09T07:58:10.000Z" title="发表于 2025-02-09 15:58:10">2025-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2025/02/09/%E7%BB%86%E8%AF%B4%E5%9B%BE%E5%BA%8A&amp;&amp;%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" title="细说图床&amp;&amp;搭建自己的图床"><img src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E5%98%BF%E7%8C%AB.png" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="细说图床&amp;&amp;搭建自己的图床"/></a><div class="content"><a class="title" href="../2025/02/09/%E7%BB%86%E8%AF%B4%E5%9B%BE%E5%BA%8A&amp;&amp;%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" title="细说图床&amp;&amp;搭建自己的图床">细说图床&amp;&amp;搭建自己的图床</a><time datetime="2025-02-09T07:58:10.000Z" title="发表于 2025-02-09 15:58:10">2025-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2025/02/09/%E4%BD%BF%E7%94%A8VuePress%E6%90%AD%E5%BB%BA%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/" title="VuePress + Github Pages 搭建个人博客"><img src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/iu-5.jpg" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="VuePress + Github Pages 搭建个人博客"/></a><div class="content"><a class="title" href="../2025/02/09/%E4%BD%BF%E7%94%A8VuePress%E6%90%AD%E5%BB%BA%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/" title="VuePress + Github Pages 搭建个人博客">VuePress + Github Pages 搭建个人博客</a><time datetime="2025-02-09T07:58:10.000Z" title="发表于 2025-02-09 15:58:10">2025-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2025/02/02/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE/" title="前端学习建议"><img src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/iu-4.jpg" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="前端学习建议"/></a><div class="content"><a class="title" href="../2025/02/02/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE/" title="前端学习建议">前端学习建议</a><time datetime="2025-02-02T12:06:46.000Z" title="发表于 2025-02-02 20:06:46">2025-02-02</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E8%B5%96%E7%BE%8A%E7%BE%8A.png);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By 密码箱</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><script src="/js/custom.js"></script></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="../../../../js/utils.js"></script><script src="../../../../js/main.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css')
+    if (true) {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const initValine = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyValine = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const valineConfig = {
+      el: '#vcomment',
+      appId: 'jWK5ulyooACMrE9ZNwkbdiUQ-gzGzoHsz',
+      appKey: 'El8QPmwj0HN1IOzQkKwhCqVy',
+      avatar: 'monsterid',
+      serverURLs: 'https://jwk5ulyo.lc-cn-n1-shared.com',
+      emojiMaps: "",
+      visitor: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || window.location.pathname
+    }
+
+    new Valine(valineConfig)
+  }
+
+  const loadValine = async (el, path) => {
+    if (typeof Valine === 'function') {
+      initValine(el, path)
+    } else {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+      initValine(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Valine' === 'Valine'
+      ? window.shuoshuoComment = { loadComment: loadValine }
+      : window.loadOtherComment = loadValine
+    return
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="../js/search/local-search.js"></script></div></div></body></html>

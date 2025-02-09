@@ -1,0 +1,504 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>VuePress + Github Pages 搭建个人博客 | 密码箱</title><meta name="author" content="密码箱"><meta name="copyright" content="密码箱"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="先贴一下成果链接，这个是我的学习博客  https:&#x2F;&#x2F;klaypeter.github.io&#x2F;learning-share&#x2F; 0. VuePress快速开始同 VuePress 官网： 1. 本地搭建 创建并进入一个新目录  &#x2F;&#x2F; 文件名自定义 mkdir vuepress-starter &amp;&amp; cd vuepress-starter   使用你喜欢的包管理器进行初始化  yar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VuePress + Github Pages 搭建个人博客">
+<meta property="og:url" content="http://example.com/2025/02/09/%E4%BD%BF%E7%94%A8VuePress%E6%90%AD%E5%BB%BA%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/">
+<meta property="og:site_name" content="密码箱">
+<meta property="og:description" content="先贴一下成果链接，这个是我的学习博客  https:&#x2F;&#x2F;klaypeter.github.io&#x2F;learning-share&#x2F; 0. VuePress快速开始同 VuePress 官网： 1. 本地搭建 创建并进入一个新目录  &#x2F;&#x2F; 文件名自定义 mkdir vuepress-starter &amp;&amp; cd vuepress-starter   使用你喜欢的包管理器进行初始化  yar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/iu-5.jpg">
+<meta property="article:published_time" content="2025-02-09T07:58:10.000Z">
+<meta property="article:modified_time" content="2025-02-09T08:08:09.008Z">
+<meta property="article:author" content="密码箱">
+<meta property="article:tag" content="小玩意儿">
+<meta property="article:tag" content="分享">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/iu-5.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "VuePress + Github Pages 搭建个人博客",
+  "url": "http://example.com/2025/02/09/%E4%BD%BF%E7%94%A8VuePress%E6%90%AD%E5%BB%BA%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/",
+  "image": "https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/iu-5.jpg",
+  "datePublished": "2025-02-09T07:58:10.000Z",
+  "dateModified": "2025-02-09T08:08:09.008Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "密码箱",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="../../../../img/iu-logo.webp"><link rel="canonical" href="http://example.com/2025/02/09/%E4%BD%BF%E7%94%A8VuePress%E6%90%AD%E5%BB%BA%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="../../../../css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"https://cdn.jsdelivr.net/npm/local-search@latest/dist/","preload":false,"top_n_per_article":3,"unescape":true,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":150,"languages":{"author":"作者: 密码箱","link":"链接: ","source":"来源: 密码箱","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'VuePress + Github Pages 搭建个人博客',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head><body><div id="web_bg" style="background-image: url(/img/iu-2.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="../img/iu-logo.webp" onerror="this.onerror=null;this.src='../img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="../archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="../tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="../categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="../categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="../tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="../archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="../gallery/"><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="../link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/iu-5.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="../../../../index.html"><img class="site-icon" src="https://img1.baidu.com/it/u=1247351064,2143309824&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=500&amp;h=500" alt="Logo"><span class="site-name">密码箱</span></a><a class="nav-page-title" href="../../../../index.html"><span class="site-name">VuePress + Github Pages 搭建个人博客</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="../categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="../tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="../archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="../gallery/"><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="../link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">VuePress + Github Pages 搭建个人博客</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-02-09T07:58:10.000Z" title="发表于 2025-02-09 15:58:10">2025-02-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-09T08:08:09.008Z" title="更新于 2025-02-09 16:08:09">2025-02-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="../../../../categories/%E6%96%87%E7%AB%A0/">文章</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>先贴一下成果链接，这个是我的学习博客</p>
+<p> <a target="_blank" rel="noopener" href="https://klaypeter.github.io/learning-share/">https://klaypeter.github.io/learning-share/</a></p>
+<h2 id="0-VuePress"><a href="#0-VuePress" class="headerlink" title="0. VuePress"></a>0. VuePress</h2><p>快速开始<a target="_blank" rel="noopener" href="https://vuepress.vuejs.org/zh/guide/getting-started.html">同 VuePress 官网</a>：</p>
+<h2 id="1-本地搭建"><a href="#1-本地搭建" class="headerlink" title="1. 本地搭建"></a>1. 本地搭建</h2><ol>
+<li>创建并进入一个新目录</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">// 文件名自定义
+mkdir vuepress-starter &amp;&amp; cd vuepress-starter<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<ol start="2">
+<li>使用你喜欢的包管理器进行初始化</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">yarn init # npm init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="3">
+<li>将 VuePress 安装为本地依赖</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">yarn add -D vuepress # npm install -D vuepress<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="4">
+<li>创建你的第一篇文档，VuePress 会以 docs 为文档根目录，所以这个 README.md 相当于主页：</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">mkdir docs &amp;&amp; echo '# Hello VuePress' &gt; docs/README.md<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ol start="5">
+<li>在 package.json 中添加一些 scripts</li>
+</ol>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token string-property property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">"docs:dev"</span><span class="token operator">:</span> <span class="token string">"vuepress dev docs"</span><span class="token punctuation">,</span>
+    <span class="token string-property property">"docs:build"</span><span class="token operator">:</span> <span class="token string">"vuepress build docs"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="6">
+<li>在本地启动服务器</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">yarn docs:dev # npm run docs:dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>VuePress 会在 <a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080</a> (opens new window) 启动一个热重载的开发服务器。</p>
+<h2 id="2-基础配置"><a href="#2-基础配置" class="headerlink" title="2. 基础配置"></a>2. 基础配置</h2><p>在文档目录下创建一个 <code>.vuepress</code> 目录，所有 VuePress 相关的文件都会被放在这里。此时你的项目结构可能是这样：</p>
+<pre class="line-numbers language-none"><code class="language-none">.
+├─ docs
+│  ├─ README.md
+│  └─ .vuepress
+│     └─ config.js
+└─ package.json<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在 <code>.vuepress</code> 文件夹下添加 <code>config.js</code>，配置网站的标题和描述，方便 SEO：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'TypeScript4 文档'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">'TypeScript4 最新官方文档翻译'</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-添加导航栏"><a href="#3-添加导航栏" class="headerlink" title="3. 添加导航栏"></a>3. 添加导航栏</h2><p>我们现在在页首的右上角添加导航栏，修改 <code>config.js</code>:</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'...'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">'...'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">themeConfig</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">nav</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span> <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'首页'</span><span class="token punctuation">,</span> <span class="token literal-property property">link</span><span class="token operator">:</span> <span class="token string">'/'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span> 
+                <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'冴羽的 JavaScript 博客'</span><span class="token punctuation">,</span> 
+                <span class="token literal-property property">items</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span> <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'Github'</span><span class="token punctuation">,</span> <span class="token literal-property property">link</span><span class="token operator">:</span> <span class="token string">'https://github.com/mqyqingfeng'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span> <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'掘金'</span><span class="token punctuation">,</span> <span class="token literal-property property">link</span><span class="token operator">:</span> <span class="token string">'https://juejin.cn/user/712139234359182/posts'</span> <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>更多的配置参考 <a target="_blank" rel="noopener" href="https://vuepress.vuejs.org/zh/theme/default-theme-config.html#%E5%AF%BC%E8%88%AA%E6%A0%8F">VuePress 导航栏</a>。</p>
+<h2 id="4-添加侧边栏"><a href="#4-添加侧边栏" class="headerlink" title="4. 添加侧边栏"></a>4. 添加侧边栏</h2><p>现在我们添加一些 md 文档，目前文档的目录如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">.
+├─ docs
+│  ├─ README.md
+│  └─ .vuepress
+│     └─ config.js
+|  └─ handbook
+|  	  └─ ConditionalTypes.md
+|	    └─ Generics.md
+└─ package.json<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>我们在 <code>config.js</code> 配置如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">module.exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    themeConfig: <span class="token punctuation">{</span>
+        nav: <span class="token punctuation">[</span><span class="token punctuation">..</span>.<span class="token punctuation">]</span>,
+        sidebar: <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                title: <span class="token string">'欢迎学习'</span>,
+                path: <span class="token string">'/'</span>,
+                collapsable: false, // 不折叠
+                children: <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span> title: <span class="token string">"学前必读"</span>, path: <span class="token string">"/"</span> <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>,
+            <span class="token punctuation">{</span>
+              title: <span class="token string">"基础学习"</span>,
+              path: <span class="token string">'/handbook/ConditionalTypes'</span>,
+              collapsable: false, // 不折叠
+              children: <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span> title: <span class="token string">"条件类型"</span>, path: <span class="token string">"/handbook/ConditionalTypes"</span> <span class="token punctuation">}</span>,
+                <span class="token punctuation">{</span> title: <span class="token string">"泛型"</span>, path: <span class="token string">"/handbook/Generics"</span> <span class="token punctuation">}</span>
+              <span class="token punctuation">]</span>,
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="5-更换主题"><a href="#5-更换主题" class="headerlink" title="5. 更换主题"></a>5. 更换主题</h2><p>现在基本的目录和导航功能已经实现，但如果我还想要加载 loading、切换动画、模式切换（暗黑模式）、返回顶部、评论等功能呢，为了简化开发成本，我们可以直接使用主题，这里使用的主题是 <a target="_blank" rel="noopener" href="https://vuepress-theme-reco.recoluan.com/">vuepress-theme-reco</a>：</p>
+<p>现在我们安装 vuepress-theme-reco：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> vuepress-theme-reco --save-dev
+<span class="token comment"># or</span>
+<span class="token function">yarn</span> <span class="token function">add</span> vuepress-theme-reco<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>然后在 <code>config.js</code> 里引用该主题：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+  <span class="token literal-property property">theme</span><span class="token operator">:</span> <span class="token string">'reco'</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="6-添加文章信息"><a href="#6-添加文章信息" class="headerlink" title="6. 添加文章信息"></a>6. 添加文章信息</h2><p>但我们也会发现，像条件类型这一篇文章，<code>条件类型（Conditional Types）</code> 竟然出现了两遍，这是因为这个主题自动提取了第一个大标题作为本文的标题，我们可以在每篇文章的 md 文件中添加一些信息修改：</p>
+<pre class="line-numbers language-none"><code class="language-none">---
+title: 条件类型
+author: 冴羽
+date: '2021-12-12'
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="7-设置语言"><a href="#7-设置语言" class="headerlink" title="7. 设置语言"></a>7. 设置语言</h2><p>注意，上图的文章时间，我们写入的格式为 <code>2021-12-12</code> ，但是显示的是 <code>12/12/2021</code>，这是因为 VuePress 默认的 lang 为 <code>en-US</code>，我们修改一下 config.js：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+  <span class="token literal-property property">locales</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token string-property property">'/'</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">lang</span><span class="token operator">:</span> <span class="token string">'zh-CN'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="8-开启目录结构"><a href="#8-开启目录结构" class="headerlink" title="8. 开启目录结构"></a>8. 开启目录结构</h2><p>在原本的主题里，我们发现每篇文章的目录结构出现在左侧：</p>
+<p>而 vuepress-theme-reco 将原有的侧边栏的中的多级标题移出，生成子侧边栏，放在了页面的右侧，如果你要全局开启，可在页面 config.js 里设置开启：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">//...</span>
+  <span class="token literal-property property">themeConfig</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">subSidebar</span><span class="token operator">:</span> <span class="token string">'auto'</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">//...</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="9-修改主题颜色"><a href="#9-修改主题颜色" class="headerlink" title="9. 修改主题颜色"></a>9. 修改主题颜色</h2><p>VuePress 基于 Vue，所以主题色用的是 Vue 的绿色，然而 TypeScript 的官方色则是蓝色，那如何修改 VuePress 的主题色呢？</p>
+<p>你可以创建一个 <code>.vuepress/styles/palette.styl</code> 文件，文件代码如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">$accentColor = #3178c6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>此时可以发现主题颜色变了：</p>
+<p>更多的颜色修改参考 VuePress 的 <a target="_blank" rel="noopener" href="https://vuepress.vuejs.org/zh/config/#palette-styl">palette.styl</a>。</p>
+<h2 id="10-自定义修改样式"><a href="#10-自定义修改样式" class="headerlink" title="10. 自定义修改样式"></a>10. 自定义修改样式</h2><p>如果你想自定义修改一些 DOM 元素的样式呢？就比如在暗黑模式下：</p>
+<p>我们发现用作强调的文字颜色比较暗淡，在暗黑模式下看不清楚，我想改下这个文字的颜色和背景色呢？</p>
+<p>而 VuePress 提供了一种添加额外样式的简便方法。你可以创建一个 <code>.vuepress/styles/index.styl</code> 文件。这是一个 Stylus 文件，但你也可以使用正常的 CSS 语法。</p>
+<p>我们在 .vupress 文件夹下创建这个目录，然后创建 index.styl 文件，代码如下：</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">// 通过检查，查看元素样式声明
+.dark .content__default code</span> <span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">rgba</span><span class="token punctuation">(</span>58<span class="token punctuation">,</span>58<span class="token punctuation">,</span>92<span class="token punctuation">,</span>0.7<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>那之前我们提到的隐藏每篇文章的标题、作者、时间呢，其实也是类似的方式：</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.page .page-title</span> <span class="token punctuation">{</span>
+   <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="11-部署"><a href="#11-部署" class="headerlink" title="11. 部署"></a>11. 部署</h2><p>我们的博客就算是正式的做好了，接下来我们部署到免费的 Github Pages 上。我们在 Github 上新建一个仓库，这里我取得仓库名为：<code>learn-typescript</code>。</p>
+<p>对应，我们需要在 <code>config.js</code> 添加一个 <code>base</code> 路径配置：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  	<span class="token comment">// 路径名为 "/&lt;REPO&gt;/"</span>
+    <span class="token literal-property property">base</span><span class="token operator">:</span> <span class="token string">'/learn-typescript/'</span><span class="token punctuation">,</span>
+  	<span class="token comment">//...</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>最终的 <code>config.js</code> 文件内容为：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'TypeScript4 文档'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">description</span><span class="token operator">:</span> <span class="token string">'TypeScript4 最新官方文档翻译'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">base</span><span class="token operator">:</span> <span class="token string">'/learn-typescript/'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">theme</span><span class="token operator">:</span> <span class="token string">'reco'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">locales</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string-property property">'/'</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token literal-property property">lang</span><span class="token operator">:</span> <span class="token string">'zh-CN'</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">themeConfig</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// lastUpdated: '上次更新',</span>
+        <span class="token literal-property property">subSidebar</span><span class="token operator">:</span> <span class="token string">'auto'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">nav</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span> <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'首页'</span><span class="token punctuation">,</span> <span class="token literal-property property">link</span><span class="token operator">:</span> <span class="token string">'/'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span> 
+                <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'冴羽的 JavaScript 博客'</span><span class="token punctuation">,</span> 
+                <span class="token literal-property property">items</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span> <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'Github'</span><span class="token punctuation">,</span> <span class="token literal-property property">link</span><span class="token operator">:</span> <span class="token string">'https://github.com/mqyqingfeng'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token punctuation">{</span> <span class="token literal-property property">text</span><span class="token operator">:</span> <span class="token string">'掘金'</span><span class="token punctuation">,</span> <span class="token literal-property property">link</span><span class="token operator">:</span> <span class="token string">'https://juejin.cn/user/712139234359182/posts'</span> <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">sidebar</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'欢迎学习'</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">collapsable</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">children</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                    <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"学前必读"</span><span class="token punctuation">,</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/"</span> <span class="token punctuation">}</span>
+                <span class="token punctuation">]</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+              <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"基础学习"</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/handbook/ConditionalTypes'</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">collapsable</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">children</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"条件类型"</span><span class="token punctuation">,</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/handbook/ConditionalTypes"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">"泛型"</span><span class="token punctuation">,</span> <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">"/handbook/Generics"</span> <span class="token punctuation">}</span>
+              <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="自动化部署"><a href="#自动化部署" class="headerlink" title="自动化部署"></a>自动化部署</h3><p>然后我们在项目 <code>vuepress-starter</code> 目录下建立一个脚本文件：<code>deploy.sh</code>，注意修改一下对应的用户名和仓库名：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/usr/bin/env sh</span>
+
+<span class="token comment"># 确保脚本抛出遇到的错误</span>
+<span class="token builtin class-name">set</span> <span class="token parameter variable">-e</span>
+
+<span class="token comment"># 生成静态文件</span>
+<span class="token function">npm</span> run docs:build
+
+<span class="token comment"># 进入生成的文件夹</span>
+<span class="token builtin class-name">cd</span> docs/.vuepress/dist
+
+<span class="token function">git</span> init
+<span class="token function">git</span> <span class="token function">add</span> <span class="token parameter variable">-A</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token string">'deploy'</span>
+
+<span class="token comment"># 如果发布到 https://&lt;USERNAME&gt;.github.io/&lt;REPO&gt;</span>
+<span class="token function">git</span> push <span class="token parameter variable">-f</span> git@github.com:mqyqingfeng/learn-typescript.git master:gh-pages
+
+<span class="token builtin class-name">cd</span> -<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后命令行切换到 <code>vuepress-starter</code> 目录下，执行 <code>sh deploy.sh</code>，就会开始构建，然后提交到远程仓库，注意这里提交到了 <code>gh-pages</code> 分支，我们查看下对应仓库分支的代码：</p>
+<blockquote>
+<p>关于这个执行的</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在windows 的终端是运行不了的</span>
+<span class="token comment"># 可以到git bash里面运行，也就是模仿linux环境了</span>
+<span class="token number">86130</span>@MMXYY2377 MINGW64 /f/个人/博客/my-blog
+$ <span class="token function">sh</span> deploy.sh
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></blockquote>
+<p>至此，我们完成了 VuePress 和 Github Pages 的部署！！！！</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">密码箱</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/02/09/%E4%BD%BF%E7%94%A8VuePress%E6%90%AD%E5%BB%BA%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/">http://example.com/2025/02/09/%E4%BD%BF%E7%94%A8VuePress%E6%90%AD%E5%BB%BA%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">密码箱</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="../../../../tags/%E5%B0%8F%E7%8E%A9%E6%84%8F%E5%84%BF/">小玩意儿</a><a class="post-meta__tags" href="../../../../tags/%E5%88%86%E4%BA%AB/">分享</a></div><div class="post-share"><div class="social-share" data-image="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/iu-5.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="../%E7%BB%86%E8%AF%B4%E5%9B%BE%E5%BA%8A&amp;&amp;%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" title="细说图床&amp;&amp;搭建自己的图床"><img class="cover" src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E5%98%BF%E7%8C%AB.png" onerror="onerror=null;src='../../../../img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">细说图床&&搭建自己的图床</div></div><div class="info-2"><div class="info-item-1">图床是什么？图床其实是互联网中存储图片的空间，举个栗子： 假设你在微博分享一张图片，你的粉丝可以通过互联网看到你分享的图片，那么他是去访问你的手机的相册吗？其实不是的，你分享图片，也就是把图片上传到微博的服务器，微博将为你生成一个独一无二的访问链接，这个链接指向的空间其实就是图床。 为什么要用图床？因为像我一样热爱在网上分享博客的人，需要使用图床来进行表达。使用图床的人通常采用Markdown的方式去编辑文字。 有什么直接去使用的图床? PicGo - 免费图床，贴出分享，图显不凡 这个应该很稳定 Hello图床 - 免费图片上传-图片外链-免费公共图床 其他自己去找找  自己搭建一个属于自己博客使用Github + JsDelivr Github更稳定,配置起来也还是很方便 一 首先新建一个公开仓库： 生成token令牌 其中的token是十分重要的，我来带大家生成一下这个token  1.在自己的头像选择setting—» Developer setting —» Personal access tokens —-» token( classic ) ——»...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="../markdown-icon/" title="一些可以美化 Markdown 的表情符号"><img class="cover" src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E6%BC%AB%E7%94%BB1.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-09</div><div class="info-item-2">一些可以美化 Markdown 的表情符号</div></div><div class="info-2"><div class="info-item-1">参考 Complete list of github markdown emoji markup 常用的：  🐾 :feet: 💭 :thought_balloon: 👊 :punch: 💩 :shit: 😊 :blush:  ❤️ :heart: ✌️ :v:  💧 :droplet: ☀️ :sunny: 🌐 :globe_with_meridians: 🌗 :last_quarter_moon: 🌍 :earth_africa: ⛅️ :partly_sunny: 💻 :computer: 📁 :file_folder: ✒️ :black_nib: 📝 :pencil: ⚠️ :warning:  🔴 :red_circle: ⭕️ :o: ✔️ :heavy_check_mark: 🚦 :vertical_traffic_light: </div></div></div></a><a class="pagination-related" href="../%E7%BB%86%E8%AF%B4%E7%BF%BB%E5%A2%99/" title="细说翻墙"><img class="cover" src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E8%B5%96%E7%BE%8A%E7%BE%8A.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-09</div><div class="info-item-2">细说翻墙</div></div><div class="info-2"><div class="info-item-1">翻墙 👣 翻墙翻墙，各个都说会说翻墙，都会翻墙，但是呢你是不是其实并不太懂翻墙的具体含义吧，那就让我们了解一下并学会使用吧🐾 文中含引用的文章：[第一篇:超详细的科普教程 | 小帅同学的博客 (xs2021.github.io)](https://xs2021.github.io/2021/05/06/1. 翻牆科普/#!) 这位大佬的博客主题，以及防爬机制等做得很好，全瞻仰大佬 国内禁止的敏感词  敏感词：vpn、翻墙、梯子、科学上网 代替词：越狱、富强、代理、魔法上网、fq  科普一下1.什么是长城防火墙?长城防火墙的英文全称叫:The Great Firewall，也就是我们俗称的”墙”。长城防火墙的存在是为了规范和监管中国互联网，它通过相关硬件和软件防火墙组成的一道过滤网，用于保护中国大陆的网络环境。它监管着所有的跨境互联网流量，并阻止中国大陆网民访问一些外部Web服务。这就是所谓的“长城防火墙”。 2.关于科学上网科学上网(也叫翻牆...</div></div></div></a><a class="pagination-related" href="../%E7%BB%86%E8%AF%B4%E5%9B%BE%E5%BA%8A&&%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" title="细说图床&amp;&amp;搭建自己的图床"><img class="cover" src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E5%98%BF%E7%8C%AB.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-09</div><div class="info-item-2">细说图床&amp;&amp;搭建自己的图床</div></div><div class="info-2"><div class="info-item-1">图床是什么？图床其实是互联网中存储图片的空间，举个栗子： 假设你在微博分享一张图片，你的粉丝可以通过互联网看到你分享的图片，那么他是去访问你的手机的相册吗？其实不是的，你分享图片，也就是把图片上传到微博的服务器，微博将为你生成一个独一无二的访问链接，这个链接指向的空间其实就是图床。 为什么要用图床？因为像我一样热爱在网上分享博客的人，需要使用图床来进行表达。使用图床的人通常采用Markdown的方式去编辑文字。 有什么直接去使用的图床? PicGo - 免费图床，贴出分享，图显不凡 这个应该很稳定 Hello图床 - 免费图片上传-图片外链-免费公共图床 其他自己去找找  自己搭建一个属于自己博客使用Github + JsDelivr Github更稳定,配置起来也还是很方便 一 首先新建一个公开仓库： 生成token令牌 其中的token是十分重要的，我来带大家生成一下这个token  1.在自己的头像选择setting—» Developer setting —» Personal access tokens —-» token( classic ) ——»...</div></div></div></a><a class="pagination-related" href="../../02/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE/" title="前端学习建议"><img class="cover" src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/iu-4.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-02</div><div class="info-item-2">前端学习建议</div></div><div class="info-2"><div class="info-item-1">前端的一个小小的学习建议（基础篇）🐾 首先你们从大一就可以开始学习前端的相关知识，我觉得太棒了 ，因为我是一路摸索滚打才慢慢找到路子的，并且基本比你们晚一年的时间投入学习的，所以对你们抱有很大的期待，我其实水平也不算特别高，但也有一些自己的学习想法和思考，希望能给大家带来点帮助！👊 📝 基础建议的是在mdn官网跟着学习一系列 html基本必学，启蒙之一，最不可以缺少的 css这是我个人感觉使用最难的部分了，感觉语法什么的还行，但是真正做项目的时候会发现，太难啦！！！！我css还需继续加强，我们共同努力👊 scss ts - js  一些css的基础用法得熟练，不然你会不快乐并且效率很低的  记住CSS的数据类型  读懂CSS的语法  多动手练习   JavaScript这个是特别重要的，是前端的逻辑，学习难度也是最大的 跟着教程来学，多运用、敲案例 📝 多看大佬博客文章或者书籍几位大佬的链接博客：  Flex 布局教程：语法篇 - 阮一峰的网络日志 张鑫旭-鑫空间-鑫生活 (zhangxinxu.com) chokcoco/iCSS: 不止于 CSS...</div></div></div></a><a class="pagination-related" href="../../02/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客"><img class="cover" src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E5%98%BF%E7%8C%AB.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-02</div><div class="info-item-2">我的第一篇博客</div></div><div class="info-2"><div class="info-item-1">就是我的第一篇博客，以后就会分享和记录更多自己的学习情况和心得体会在这里，见证走过的路，取得的成就！！！虽迟但到，我相信我会一直坚持下去的！！！😀 </div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="../img/iu-logo.webp" onerror="this.onerror=null;this.src='../img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">密码箱</div><div class="author-info-description">欢迎来到密码箱的个人博客，记录思考与成长</div><div class="site-data"><a href="../archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="../tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="../categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/KlayPeter/"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/KlayPeter" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="../mailto:kt_mmxyy2377@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-VuePress"><span class="toc-number">1.</span> <span class="toc-text">0. VuePress</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA"><span class="toc-number">2.</span> <span class="toc-text">1. 本地搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">2. 基础配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%B7%BB%E5%8A%A0%E5%AF%BC%E8%88%AA%E6%A0%8F"><span class="toc-number">4.</span> <span class="toc-text">3. 添加导航栏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0%E4%BE%A7%E8%BE%B9%E6%A0%8F"><span class="toc-number">5.</span> <span class="toc-text">4. 添加侧边栏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">5. 更换主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E4%BF%A1%E6%81%AF"><span class="toc-number">7.</span> <span class="toc-text">6. 添加文章信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80"><span class="toc-number">8.</span> <span class="toc-text">7. 设置语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E5%BC%80%E5%90%AF%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">9.</span> <span class="toc-text">8. 开启目录结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98%E9%A2%9C%E8%89%B2"><span class="toc-number">10.</span> <span class="toc-text">9. 修改主题颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F"><span class="toc-number">11.</span> <span class="toc-text">10. 自定义修改样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E9%83%A8%E7%BD%B2"><span class="toc-number">12.</span> <span class="toc-text">11. 部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">12.1.</span> <span class="toc-text">自动化部署</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="../2025/02/09/markdown-icon/" title="一些可以美化 Markdown 的表情符号"><img src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E6%BC%AB%E7%94%BB1.png" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="一些可以美化 Markdown 的表情符号"/></a><div class="content"><a class="title" href="../2025/02/09/markdown-icon/" title="一些可以美化 Markdown 的表情符号">一些可以美化 Markdown 的表情符号</a><time datetime="2025-02-09T07:58:10.000Z" title="发表于 2025-02-09 15:58:10">2025-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2025/02/09/%E7%BB%86%E8%AF%B4%E7%BF%BB%E5%A2%99/" title="细说翻墙"><img src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E8%B5%96%E7%BE%8A%E7%BE%8A.png" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="细说翻墙"/></a><div class="content"><a class="title" href="../2025/02/09/%E7%BB%86%E8%AF%B4%E7%BF%BB%E5%A2%99/" title="细说翻墙">细说翻墙</a><time datetime="2025-02-09T07:58:10.000Z" title="发表于 2025-02-09 15:58:10">2025-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2025/02/09/%E7%BB%86%E8%AF%B4%E5%9B%BE%E5%BA%8A&amp;&amp;%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" title="细说图床&amp;&amp;搭建自己的图床"><img src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/%E5%A3%81%E7%BA%B8-%E5%98%BF%E7%8C%AB.png" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="细说图床&amp;&amp;搭建自己的图床"/></a><div class="content"><a class="title" href="../2025/02/09/%E7%BB%86%E8%AF%B4%E5%9B%BE%E5%BA%8A&amp;&amp;%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9B%BE%E5%BA%8A/" title="细说图床&amp;&amp;搭建自己的图床">细说图床&amp;&amp;搭建自己的图床</a><time datetime="2025-02-09T07:58:10.000Z" title="发表于 2025-02-09 15:58:10">2025-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2025/02/09/%E4%BD%BF%E7%94%A8VuePress%E6%90%AD%E5%BB%BA%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/" title="VuePress + Github Pages 搭建个人博客"><img src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/iu-5.jpg" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="VuePress + Github Pages 搭建个人博客"/></a><div class="content"><a class="title" href="../2025/02/09/%E4%BD%BF%E7%94%A8VuePress%E6%90%AD%E5%BB%BA%E5%AD%A6%E4%B9%A0%E5%8D%9A%E5%AE%A2/" title="VuePress + Github Pages 搭建个人博客">VuePress + Github Pages 搭建个人博客</a><time datetime="2025-02-09T07:58:10.000Z" title="发表于 2025-02-09 15:58:10">2025-02-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="../2025/02/02/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE/" title="前端学习建议"><img src="https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/iu-4.jpg" onerror="this.onerror=null;this.src='../img/404.jpg'" alt="前端学习建议"/></a><div class="content"><a class="title" href="../2025/02/02/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE/" title="前端学习建议">前端学习建议</a><time datetime="2025-02-02T12:06:46.000Z" title="发表于 2025-02-02 20:06:46">2025-02-02</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://fastly.jsdelivr.net/gh/KlayPeter/blog-image-bed@main/iu-5.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By 密码箱</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div><script src="/js/custom.js"></script></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="../../../../js/utils.js"></script><script src="../../../../js/main.js"></script><div class="js-pjax"><script>(async () => {
+  const showKatex = () => {
+    document.querySelectorAll('#article-container .katex').forEach(el => el.classList.add('katex-show'))
+  }
+
+  if (!window.katex_js_css) {
+    window.katex_js_css = true
+    await btf.getCSS('https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css')
+    if (true) {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js')
+    }
+  }
+
+  showKatex()
+})()</script><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const initValine = (el, path) => {
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyValine = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+
+    const valineConfig = {
+      el: '#vcomment',
+      appId: 'jWK5ulyooACMrE9ZNwkbdiUQ-gzGzoHsz',
+      appKey: 'El8QPmwj0HN1IOzQkKwhCqVy',
+      avatar: 'monsterid',
+      serverURLs: 'https://jwk5ulyo.lc-cn-n1-shared.com',
+      emojiMaps: "",
+      visitor: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || window.location.pathname
+    }
+
+    new Valine(valineConfig)
+  }
+
+  const loadValine = async (el, path) => {
+    if (typeof Valine === 'function') {
+      initValine(el, path)
+    } else {
+      await btf.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js')
+      initValine(el, path)
+    }
+  }
+
+  if (isShuoshuo) {
+    'Valine' === 'Valine'
+      ? window.shuoshuoComment = { loadComment: loadValine }
+      : window.loadOtherComment = loadValine
+    return
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="../js/search/local-search.js"></script></div></div></body></html>
